@@ -5,7 +5,7 @@ Navigate your terminal to the pariksha repo then install all the dependencies us
 Then use the following command to start the server:
 * Run run.py
 
-To access the pages on server check the port in the result fo the last command and then open this link in your browser:
+To access the pages on server check the port in the result for the last command and then open this link in your browser:
     localhost:<port-number>
 (Default port number is 8080)
 
