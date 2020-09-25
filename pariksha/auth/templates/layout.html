@@ -10,8 +10,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('auth.static', filename='main.css') }}">
 
@@ -33,37 +31,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                       
+                        <a class="nav-item nav-link" href="#">Home</a>
+                        <a class="nav-item nav-link" href="#">About</a>
                     </div>
                     <!-- Navbar Right Side -->
-                    <div class="navbar-nav navbar-right mr-auto">
-                       <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item active">
-                         <a class="nav-link" href="#"><i class="fa fa-fw fa-home"></i>Home
-                         <span class="sr-only">(current)</span>
-                         </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" target="_blank">About Pariksha</a>
-                        </li>
-                       <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">Features</a>
-                       </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">Prices</a>
-                        </li>
-                        <li class="nav-item">
-                         <a class="nav-link" href="#" target="_blank"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
-                         </li>
+                    <div class="navbar-nav">
                         {% if current_user.is_authenticated %}
-                           <li class="nav-item"> <a class="nav-item nav-link" href=" #">Add Post</a></li>
-                           <li class="nav-item"> <a class="nav-item nav-link" href="#">Account</a></li>
-                           <li class="nav-item"><a class="nav-item nav-link" href="#">Logout</a></li>
+                        <a class="nav-item nav-link" href=" #">Add Post</a>
+                        <a class="nav-item nav-link" href="#">Account</a>
+                        <a class="nav-item nav-link" href="#">Logout</a>
                         {% else %}
-                           <li class="nav-item"><a class="nav-item nav-link" href=" #">Register</a></li>
-                           <li class="nav-item"><a class="nav-item nav-link" href="#">Login</a></li>
+                        <a class="nav-item nav-link" href=" #">Register</a>
+                        <a class="nav-item nav-link" href="#">Login</a>
                         {% endif %}
-                       </ul>
                     </div>
                 </div>
             </div>

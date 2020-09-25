@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('auth.static', filename='main.css') }}">
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/fr_Teachers.css" rel="stylesheet">
+
+    {% if title %}
+    <title>Pariksha : {{ title }}</title>
+    {% else %}
+    <title>Pariksha</title>
+    {% endif %}
+
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            color: #272829;
+          }
+      
+          a {
+            color: #149ddd;
+          }
+      
+      
+      
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-family: "Raleway", sans-serif;
+          }
+      
+      
+      
+      
+          #header {
+            position: fixed;
+      
+      
+            top: 56px;
+            left: 0;
+            bottom: 0px;
+            width: 300px;
+            transition: all ease-in-out 0.5s;
+            z-index: 9997;
+            transition: all 0.5s;
+            padding: 15px 15px;
+            background: #040b14;
+            overflow-y: auto;
+          }
+      
+          #header .profile img {
+            margin-top: 250px;
+            margin-left: 15px;
+      
+            display: block;
+            width: 120px;
+            border: 8px solid #2c2f3f;
+          }
+      
+          #header .profile h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            font-weight: 600;
+      
+            font-family: "Poppins", sans-serif;
+          }
+      
+          #header .profile h1 a,
+          #header .profile h1 a:hover {
+            color: #fff;
+            text-decoration: none;
+          }
+      
+      
+          #main {
+            margin-left: 300px;
+          }
+      
+          @media (max-width: 1199px) {
+            #header {
+              left: -300px;
+            }
+      
+            #main {
+              margin-left: 0;
+            }
+          }
+      
+          .nav-menu {
+            padding-top: 0px;
+          }
+      
+          .nav-menu * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+      
+          .nav-menu>ul>li {
+      
+            white-space: nowrap;
+          }
+      
+          .nav-menu a {
+            display: flex;
+            align-items: center;
+            color: #a8a9b4;
+            padding: 0px 15px;
+            margin-bottom: 0px;
+            transition: 0.3s;
+            font-size: 15px;
+          }
+      
+          .nav-menu a i {
+            font-size: 24px;
+            padding-right: 8px;
+            color: #1C2331 !important;
+          }
+      
+          .nav-menu a:hover,
+          .nav-menu .active>a,
+          .nav-menu li:hover>a {
+            text-decoration: none;
+            color: #fff;
+          }
+      
+          .nav-menu a:hover i,
+          .nav-menu .active>a i,
+          .nav-menu li:hover>a i {
+            color: #149ddd;
+          }
+      
+      
+          .mobile-nav-toggle {
+            position: fixed;
+            right: 15px;
+            top: 15px;
+            z-index: 9998;
+            border: 0;
+            background: none;
+            font-size: 24px;
+            transition: all 0.4s;
+            outline: none !important;
+            line-height: 1;
+            cursor: pointer;
+            text-align: right;
+          }
+      
+          .mobile-nav-toggle i {
+            color: #149ddd;
+          }
+      
+          .mobile-nav-active {
+            overflow: hidden;
+          }
+      
+          .mobile-nav-active #header {
+            left: 0;
+          }
+      
+          .mobile-nav-active .mobile-nav-toggle i {
+            color: #fff;
+          }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style=" position: fixed; ">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="{{ url_for('main.welcome') }}">Pariksha</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="#">Home</a>
+                        <a class="nav-item nav-link" href="#">About</a>
+                    </div>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if current_user.is_authenticated %}
+                        <a class="nav-item nav-link" href="#">Account</a>
+                        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                        {% else %}
+                        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
+                        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+       
+        
+        
+ 
+</header>
+
+    <main role="main" class="jumbotron">
+        <div class="jumbotron">
+
+            <div class="card-group">
+        <header id="header">
+            <div class="d-flex flex-column" style="margin-top: -200px;">
+        
+              <div class="profile">
+                <img src="https://t4.ftcdn.net/jpg/03/80/34/87/240_F_380348780_NgNWK8eMkcHNTvjZXtlejwxdxsVBVcWj.jpg" alt="" class="img-fluid rounded-circle">
+                <h1 class="text-light" style="color:white ;">Kuldeep Chaurasia</a></h1>
+                <a style="color:white ;">* Ex- ISRO Person * Best Mentor * Can make 3d landscape models using two sensors!!</a>
+                <a style="color:white ;">* Best Tut Teacher* rather best teacher * Bennett University</a>
+
+              </div>
+            </div>
+        </header>
+                
+        <nav class="nav-menu ">
+        
+             </header>
+                {% with messages = get_flashed_messages(with_categories = true ) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                <div class="alert alert-{{category}}">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock content %}
+            </div>
+            
+        </div>
+    </main>
+    <footer class="page-footer text-center font-big mt-10 wow " style="background-color:#1C2331; margin-left:300px; margin-top:-50px; margin-bottom:-100px;">
+      
+       
+        <div class="row" >
+          <div class="col-60 col-md-5">
+            <div class="pr-lg-5">
+              <h1 class="heading h6 text-uppercase font-weight-700 mb-2" style="margin-top: 25px; "><strong style="color: white;">PARiKSHA</strong></h1>
+              <p style="color: white; margin-left:30px;"><strong style="color: white;">PARiKSHA</strong> is created with a motive of providing a unified platform to studentes and teachers so that the process of learing and its quality does not reduces in these tough times.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3" style="color: white; margin-top: 25px;" >Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Conduct Exams With A.I.</a></li>
+              <li><a class="text-muted" href="#">Analyze Result </a></li>
+              <li><a class="text-muted" href="#">Classes</a></li>
+              <li><a class="text-muted" href="#"></a></li>
+              <li><a class="text-muted" href="#"></a></li>
+              <li><a class="text-muted" href="#"></a></li>
+              <li><a class="text-muted" href="#"></a></li>
+              <li><a class="text-muted" href="#"></a></li>
+
+
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3"style="color: white; margin-top: 25px; ">Flexible</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">For Teachers</a></li>
+              <li><a class="text-muted" href="#">For Students</a></li>
+              <li><a class="text-muted" href="#">For Parents</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3"style="color: white; margin-top: 25px; ">Contact Us</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Mail</a></li>
+              <li><a class="text-muted" href="#">LinkedIn</a></li>
+              
+            </ul>
+          </div>
+        </div>
+        <hr>
+        
+      </div>
+
+  </footer>
+
+
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

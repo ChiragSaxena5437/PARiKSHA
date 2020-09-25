@@ -1,0 +1,153 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #272829;
+  }
+
+  a {
+    color: #149ddd;
+  }
+
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+
+
+
+  #header {
+    position: fixed;
+
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 350px;
+    transition: all ease-in-out 0.5s;
+    z-index: 9997;
+    transition: all 0.5s;
+    padding: 15px 15px;
+    background: #040b14;
+    overflow-y: auto;
+  }
+
+  #header .profile img {
+    margin-top: 250px;
+    margin-left: 15px;
+
+    display: block;
+    width: 120px;
+    border: 8px solid #2c2f3f;
+  }
+
+  #header .profile h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+
+    font-family: "Poppins", sans-serif;
+  }
+
+  #header .profile h1 a,
+  #header .profile h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+  #main {
+    margin-left: 300px;
+  }
+
+  @media (max-width: 1199px) {
+    #header {
+      left: -300px;
+    }
+
+    #main {
+      margin-left: 0;
+    }
+  }
+
+  .nav-menu {
+    padding-top: 0px;
+  }
+
+  .nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-menu>ul>li {
+
+    white-space: nowrap;
+  }
+
+  .nav-menu a {
+    display: flex;
+    align-items: center;
+    color: #a8a9b4;
+    padding: 0px 15px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+  }
+
+  .nav-menu a i {
+    font-size: 24px;
+    padding-right: 8px;
+    color: #1C2331 !important;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu .active>a,
+  .nav-menu li:hover>a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .nav-menu a:hover i,
+  .nav-menu .active>a i,
+  .nav-menu li:hover>a i {
+    color: #149ddd;
+  }
+
+
+  .mobile-nav-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9998;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: right;
+  }
+
+  .mobile-nav-toggle i {
+    color: #149ddd;
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active #header {
+    left: 0;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle i {
+    color: #fff;
+  }

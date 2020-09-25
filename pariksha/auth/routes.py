@@ -28,6 +28,9 @@ def logout():
     logout_user()
     return redirect(url_for("main.welcome"))
 
+@auth.route("/teachers")
+def toteachers():
+    return render_template("Teachers.html")
 
 @auth.route("/register", methods = ["POST","GET"])
 def register():
