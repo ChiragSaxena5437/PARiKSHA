@@ -1,47 +1,235 @@
-{% extends "teac_stud.html" %}
+{% extends "layout.html" %}
 {% block content%}
+<style>
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #1C2331;
+  }
+
+  a {
+    color: #149ddd;
+  }
+
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+
+
+
+  #header {
+    position: fixed;
+
+
+    top: 35px;
+    left: 0;
+    bottom: 0;
+    width: 350px;
+  
+    z-index: 0000;
+    transition: all 0.5s;
+    padding: 15px 15px;
+    background: #1C2331;
+    overflow-y: auto;
+  }
+
+  #header .profile img {
+    margin-top: 200px;
+    margin-left: 15px;
+
+    display: block;
+    width: 120px;
+    border: 8px solid #2c2f3f;
+  }
+
+  #header .profile h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+
+    font-family: "Poppins", sans-serif;
+  }
+
+  #header .profile h1 a,
+  #header .profile h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+  #main {
+    margin-left: 300px;
+  }
+
+  @media (max-width: 1199px) {
+    #header {
+      left: -300px;
+    }
+
+    #main {
+      margin-left: 0;
+    }
+  }
+
+  .nav-menu {
+    padding-top: 0px;
+  }
+
+  .nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-menu>ul>li {
+
+    white-space: nowrap;
+  }
+
+  .nav-menu a {
+    display: flex;
+    align-items: center;
+    color: #a8a9b4;
+    padding: 0px 15px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+  }
+
+  .nav-menu a i {
+    font-size: 24px;
+    padding-right: 8px;
+    color: #1C2331 !important;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu .active>a,
+  .nav-menu li:hover>a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .nav-menu a:hover i,
+  .nav-menu .active>a i,
+  .nav-menu li:hover>a i {
+    color: #149ddd;
+  }
+
+
+  .mobile-nav-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9998;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: right;
+  }
+
+  .mobile-nav-toggle i {
+    color: #149ddd;
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active #header {
+    left: 0;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle i {
+    color: #fff;
+  }
+</style>
 
 <body>
-  <div class="card-group">
-      <div class="card" style="margin-left:350px; min-width:500px; ">
-        <img src='https://t3.ftcdn.net/jpg/03/34/92/46/240_F_334924600_Qtl5awh2cniAh0J1ofm6t37kcAl0JSjZ.jpg' ;
-         style="width:500px" class="card-img-top" alt="...">
 
-        <div class="card-footer">
-          <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Create
-            Test</button>
-        </div>
-        <img src='https://t4.ftcdn.net/jpg/03/45/98/49/240_F_345984914_AIRLyd3XfRAyhTZH4MnFdIiD9fWDxaix.jpg' ;
-         class="card-img-top" alt="..." style="margin-top:100px; width:500px">
+<button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+<div  style="background-color: #a8a9b4; overflow:hidden;">
+  <div class="col-md-3 offset-md-0">
+<header id="header">
+    <div class="d-flex flex-column" style=" overflow:hidden; margin-top:50px;">
 
-        <div class="card-footer">
-          <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">View
-            Result</button>
-        </div>
+    <div class="profile">
+      <img src="https://t4.ftcdn.net/jpg/03/80/34/87/240_F_380348780_NgNWK8eMkcHNTvjZXtlejwxdxsVBVcWj.jpg" alt="" class="img-fluid rounded-circle">
+      <h1 class="text-light"><a href="index.html">Teacher'name</a></h1>
+
+    </div>
+    
+
+
+    <nav class="nav-menu " style="margin-top:0 px;">
+      <a> Designation</a>
+
+
+
+</header>
+</div>
+
+
+  <div class="card-group" style=" margin-top:100px; margin-bottom:100px;">
+<div class=".col-sm">
+</div>
+    <div class="col-md-3 offset-md-4">
+    <div class="card" style="min-width:300px; ">
+      
+      <img src='https://t3.ftcdn.net/jpg/03/34/92/46/240_F_334924600_Qtl5awh2cniAh0J1ofm6t37kcAl0JSjZ.jpg' ; style="width:auto; height:auto" class="card-img-top" alt="...">
+
+      <div class="card-footer">
+        <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Create
+          Test</button>
       </div>
+    </div>
   
+  
+      <div class="card" style=" min-width:300px; margin-top:100px; ">
 
+      <img src='https://t3.ftcdn.net/jpg/02/08/25/96/240_F_208259638_g1njxkWv7dhPnXyUAv6VlaowDNY892og.jpg' ; class="card-img-top" 
+      alt="..." style="width:auto; height:auto">
 
-    <div class="card" style="margin-left:10px; min-width:500px; ">
-
-
-        <img src="https://t4.ftcdn.net/jpg/02/44/61/75/240_F_244617573_QuS2IR8mBG0XvsUbvIBe3eSPFFM6Sajj.jpg" 
-        class="card-img-top" alt="..." style="width:500px; height:310px;">
-
-        <div class="card-footer">
-          <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Create
-            Assingement</button>
-        </div>
-        <div >
-          <img src="https://t3.ftcdn.net/jpg/03/75/47/08/240_F_375470815_ltdpTlZTu0VuBDRoBavzSgqLpA2sDg8p.jpg" class="card-img-top" alt="..."
-            style="margin-top:100px; width:500px;" >
-        </div>
-        <div class="card-footer">
-          <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Check
-            Result</button>
-        </div>
+      <div class="card-footer">
+        <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">View
+          Result</button>
       </div>
+    </div>
   </div>
+
+
+  <div class="col-md-3 offset-md-1">
+
+    <div class="card" style=" min-width:300px;">
+      <img src="https://t3.ftcdn.net/jpg/03/06/14/50/240_F_306145094_fXSwGom0JWii8WKLqBMz5TL8G6X4EEPj.jpg" class="card-img-top" alt="..." style=" width:auto; height:auto">
+
+      <div class="card-footer">
+        <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Create
+          Assingement</button>
+      </div>
+    </div>
+      <div class="card" style=" min-width:300px; margin-top:100px;">
+        <img src="https://t4.ftcdn.net/jpg/03/32/93/91/240_F_332939130_xh4uVUk1lnxxaj6y3FHg2ivspzPEiSPW.jpg" class="card-img-top" alt="..."
+          style=" width:auto; height:auto ">
+      
+      <div class="card-footer">
+        <button type="CreateTest" class=" btn btn-block mybtn btn-primary tx-tfm" style="background: #1C2331;">Check
+          Result</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 </body>
 {% endblock content %}

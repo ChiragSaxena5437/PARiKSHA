@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content%}
-<body>
+<div>
+<div class="container" ">
+   
+        <div class="col-md-6 offset-md-3" style="margin-top:150px;margin-bottom:150px;">
   <div class="content-section">
     <form method = "POST", action="">
         {{ form.hidden_tag() }}
@@ -51,5 +54,7 @@
             Don't have an account yet? <a class = "ml-2" href="#">Sign Up</a>
         </small>
     </div>
-</div>    
+</div>   
+</div> 
+</div>
 {% endblock content %}
