@@ -62,6 +62,10 @@
                         {{ form.confirm_password(class="form-control form-control-lg") }}                        
                     {% endif %}
                 </div>
+                <div class="form-group">
+                    {{ form.acc_type.label(class="form-control-label") }}
+                    {{ form.acc_type(class="form-control form-control-lg") }}                        
+                </div>
             </fieldset>
             <div>
                 {{ form.submit(class="btn btn-outline-primary")}}
