@@ -21,14 +21,9 @@ class RegistrationForm(FlaskForm):
 
     confirm_password = PasswordField('Confirm Password',validators=[DataRequired(), Length(min=8,max = 30), EqualTo('password')])
 
-    #acc_type = SelectField("Accounte Type",choices=["Student","Teacher"])
+    acc_type = SelectField("Accounte Type ",choices=[("Student","Student"),("Teacher","Teacher")])
 
     submit = SubmitField('Sign up')
-
-    def validate_username(self,username):
-        existing_username = User.query.filter_by(username = username.data).first()
-        if existing_username:
-            raise ValidationError("Username exists")
 
     def validate_email(self,email):
         existing_email = User.query.filter_by(email = email.data).first()

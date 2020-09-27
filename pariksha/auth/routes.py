@@ -1,4 +1,4 @@
-from flask import Blueprint,redirect ,render_template,url_for,flash
+from flask import Blueprint,redirect ,render_template,url_for,flash,request
 from flask_login import login_user,logout_user
 from pariksha.auth.forms import *
 from pariksha.models import User
@@ -28,24 +28,21 @@ def logout():
     logout_user()
     return redirect(url_for("main.welcome"))
 
-@auth.route("/teachers")
-def toteachers():
-    return render_template("Teachers.html")
 
 @auth.route("/register", methods = ["POST","GET"])
 def register():
-    
     form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-        user = User(email = form.email.data,password = hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        send_verification_email(user)
-        flash("Your Account has been created and ready to be logged in !!", 'success')
-        return redirect(url_for("main.welcome"))
-    else:
-        form.errors
+    if request.method == "POST":
+        if form.validate_on_submit():
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
+            user = User(name = form.name.data, email = form.email.data,password = hashed_password,acc_type = form.acc_type.data)
+            db.session.add(user)
+            db.session.commit()
+            send_verification_email(user)
+            flash("Your Account has been created and ready to be logged in !!", 'success')
+            return redirect(url_for("main.welcome"))
+        else:
+            return 
     return render_template("register.html",form = form,title = "Register")
 
 @auth.route("/verify_account/<token>")
