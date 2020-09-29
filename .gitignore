@@ -50,3 +50,13 @@ htmlcov/
 .coverage.*
 *,cover
 
+/__pycach   e__/__init__.cpython-38.pyc
+/__pycache__/config.cpython-38.pyc
+/__pycache__/models.cpython-38.pyc
+/auth/__pycache__/forms.cpython-38.pyc
+/auth/__pycache__/routes.cpython-38.pyc
+/auth/__pycache__/utils.cpython-38.pyc
+/main/__pycache__/__init__.cpython-38.pyc
+/main/__pycache__/routes.cpython-38.pyc
+/user/__pycache__/__init__.cpython-38.pyc
+/user/__pycache__/routes.cpython-38.pyc
