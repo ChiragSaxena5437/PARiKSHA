@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ChiragSaxena5437/PARiKSHA">
-    <img src="images/logo.png" alt="Logo" width="130" height="130">
+    <img src="assets/images/logo.png" alt="Logo" width="130" height="130">
   </a>
 
   <h3 align="center">PARiKSHA</h3>
@@ -121,4 +121,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [license-url]: https://github.com/ChiragSaxena5437/PARiKSHA/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/pulkit-vyas
-[product-screenshot]: images/About.png
+[product-screenshot]: assets/images/About.png
