@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container" ">
+<div class="container">
    
     <div class=" col-md-6 offset-md-3" style="margin-top:100px;margin-bottom:50px;">
     <div class="content-section">
@@ -63,6 +63,19 @@
                     </div>
                     {% else %}
                     {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.acc_type.label(class="form-control-label") }}
+                    {% if form.acc_type.errors %}
+                    {{ form.acc_type(class="form-control form-control-lg is-invalid") }}
+                    <div calss="invalid-feedback">
+                        {% for error in form.acc_type.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.acc_type(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
             </fieldset>
