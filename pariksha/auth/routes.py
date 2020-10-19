@@ -1,7 +1,7 @@
 from flask import Blueprint,redirect ,render_template,url_for,flash
 from flask_login import login_user,logout_user, current_user
 from pariksha.auth.forms import *
-from pariksha.models import User
+from pariksha.models import User,Student,Teacher
 from pariksha.auth.utils import send_reset_email,send_verification_email
 from pariksha import bcrypt,db
 
@@ -13,14 +13,19 @@ def register():
         form = RegistrationForm()
         if form.validate_on_submit():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-            user = User(name = form.name.data, email = form.email.data,password = hashed_password, acc_type = form.acc_type.data)
-            db.session.add(user)
+            user = User(name = form.name.data, email = form.email.data,password = hashed_password)
+            if form.acc_type == "Student":
+                student = Student(user = user)
+                db.session.add(user)
+                db.session.add(student)
+            else:
+                teacher = Teacher(user = user)
+                db.session.add(user)
+                db.session.add(teacher)
             db.session.commit()
             send_verification_email(user)
             flash("Your Account has been created and ready to be logged in !!", 'success')
             return redirect(url_for("main.welcome"))
-        else:
-            form.errors
         return render_template("register.html",form = form,title = "Register")
 
 @auth.route("/login", methods=["POST","GET"])
@@ -31,9 +36,16 @@ def login():
             user = User.query.filter_by(email=form.email.data).first()
             if user and bcrypt.check_password_hash(user.password, form.password.data):
                 if user.verified:
-                    login_user(user, remember=False)    
-                    flash("Logged in!!",'sucess')
-                    return redirect(url_for("main.welcome"))
+                    if user.student is not None:
+                        login_user(user, remember=False)    
+                        flash("Logged in!!",'sucess')
+                        #student login route here
+                        return "Student Login"
+                    if user.teacher is not None:
+                        login_user(user, remember=False)    
+                        flash("Logged in!!",'sucess')
+                        #teacher login route here
+                        return "Teacher Login"
                 else:
                     return "verify your account"
             else:
