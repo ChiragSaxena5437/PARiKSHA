@@ -31,6 +31,9 @@ $RECYCLE.BIN/
 .flaskenv
 *.pyc
 *.pyo
+
+__pycache__/
+__pycache__*
 env/
 env*
 dist/
