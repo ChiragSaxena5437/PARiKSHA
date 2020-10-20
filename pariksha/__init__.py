@@ -23,12 +23,13 @@ def create_app(config_class = Config):
     bcrypt.init_app(app)
     db.init_app(app)
 
-    from pariksha.user.routes import user
     from pariksha.main.routes import main
     from pariksha.auth.routes import auth
+    from pariksha.student.routes import student
+    from pariksha.teacher.routes import teacher
 
-
-    app.register_blueprint(user)
+    app.register_blueprint(student)
+    app.register_blueprint(teacher)
     app.register_blueprint(main)
     app.register_blueprint(auth)
 
