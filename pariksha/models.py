@@ -28,6 +28,7 @@ class User(db.Model,UserMixin):
 
     
     verified = db.Column(db.Boolean,
+        nullable = False,
         default = False)
 
     student = db.relationship('Student',
@@ -51,7 +52,7 @@ class User(db.Model,UserMixin):
         return User.query.get(user_id)
     
     def __repr__(self):
-        return f"User {self.id}, {self.name}, {self.email}, {self.password}, {self.acc_type}"
+        return f"User {self.id}, {self.name}, {self.email}, {self.password}"
 
 
 class Student(db.Model):
@@ -61,9 +62,13 @@ class Student(db.Model):
     user_id = db.Column(db.Integer,
          db.ForeignKey('user.id'))
 
-    attempted_assignment = db.relationship('Assignment',
-        secondary = 'attempts',
-        backref = db.backref('attempted_by', lazy = 'dynamic'))
+    submitted_assignment = db.relationship('Assignment',
+        secondary = 'submits_assign',
+        backref = db.backref('submitted_by', lazy = 'dynamic'))
+
+    submitted_quiz = db.relationship('Quiz',
+        secondary = 'submits_quiz',
+        backref = db.backref('submitted_by', lazy = 'dynamic'))
 
 class Teacher(db.Model):
     id = db.Column(db.Integer,
@@ -73,9 +78,19 @@ class Teacher(db.Model):
          db.ForeignKey('user.id'))
     
     assignment_created = db.relationship('Assignment',
-        backref = 'teacher_created')
+        backref = 'created_by')
+
+    quiz_created = db.relationship('Quiz',
+        backref = 'created_by')
+    
+    students = db.relationship('Student',
+        secondary = 'teaches',
+        backref = db.backref('taught_by', lazy = 'dynamic'))
     
 
+teaches = db.Table('teaches',
+    db.Column('student_id',db.Integer, db.ForeignKey('student.id')),
+    db.Column('teacher_id',db.Integer, db.ForeignKey('teacher.id')))
 
 #-----------------------------------------------Assignment-----------------------------------------------
 
@@ -97,7 +112,7 @@ class Assignment(db.Model):
         default = datetime.now)
 
     teacher_id = db.Column(db.Integer,
-        db.ForeignKer('teacher.id'))
+        db.ForeignKey('teacher.id'))
         
     marks = db.Column(db.Integer)
 
@@ -132,12 +147,84 @@ class Assignment_Questions(db.Model):
     assignment_id = db.Column(db.Integer, db.ForeignKey('assignment.id'))
 
 
-# Attempts_Table
-attempts = db.Table('attempts',
-    db.Column('student_id', db.Integer, db.ForiegnKey('student.id')),
+# Subnmit_Table
+submits_assign = db.Table('submits_assign',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
     db.Column('assignment_id', db.Integer, db.ForeignKey('assignment.id')),
-    db.Column('submitted', db.Boolean, default = False),
-    db.Column('time_submitted', db.DateTime), nullable = False,
-    db.Column('marks', db.Integer, default = False))
+    db.Column('time_submitted', db.DateTime, nullable = False, default = datetime.now),
+    db.Column('marks', db.Integer))
 
 #-----------------------------------------------Quiz-----------------------------------------------
+
+class Quiz(db.Model):
+    id = db.Column(db.Integer,
+        primary_key = True)
+
+    title = db.Column(db.String(30),
+        nullable = False)
+    
+    start_time = db.Column(db.DateTime,
+        nullable = False)
+
+    end_time = db.Column(db.DateTime,
+        nullable = False)
+
+    active = db.Column(db.Boolean,
+        nullable = False,
+        default = False)
+
+    time_created = db.Column(db.DateTime,
+        nullable = False,
+        default = datetime.now)
+
+    teacher_id = db.Column(db.Integer,
+        db.ForeignKey('teacher.id'))
+        
+    marks = db.Column(db.Integer)
+
+    questions = db.relationship('Quiz_Questions',
+        backref = 'quiz')
+
+
+
+class Quiz_Questions(db.Model):
+    id = db.Column(db.Integer,
+        primary_key = True)
+    
+    question_desc = db.Column(db.String(700),
+        nullable = False)
+
+    marks = db.Column(db.Integer)
+    
+    photo_uri = db.String(db.String(30))
+
+    option_1 = db.Column(db.String(400),
+        nullable = False)
+
+    option_2 = db.Column(db.String(400),
+        nullable = False)
+    
+    option_3 = db.Column(db.String(400),
+        nullable = False)
+    
+    option_4 = db.Column(db.String(400),
+        nullable = False)
+
+    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'))
+
+
+# Submits_Quiz
+submits_quiz = db.Table('submits_quiz',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('quiz_id', db.Integer, db.ForeignKey('quiz.id')),
+    db.Column('time_submitted', db.DateTime, nullable = False, default = datetime.now),
+    db.Column('marks', db.Integer))
+
+
+
+
+
+
+
+
+
