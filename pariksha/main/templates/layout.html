@@ -17,8 +17,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Index</title>
+  {% if title != None %}
+  <title>PARiKSHA : {{title}}</title>  
+  {% else %}
+  <title>PARiKSHA</title>  
+  {% endif %}
+  
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 

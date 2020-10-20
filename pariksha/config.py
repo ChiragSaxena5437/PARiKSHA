@@ -7,6 +7,6 @@ class Config():
     #mail port info ends
 
     #add email and password 
-    MAIL_USERNAME = ""
-    MAIL_PASSWORD = ""
+    MAIL_USERNAME = "pariksha.contact@gmail.com"
+    MAIL_PASSWORD = "pycavmail"
     SQLALCHEMY_DATABASE_URI = "sqlite:///site.db"

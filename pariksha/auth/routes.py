@@ -1,61 +1,62 @@
 from flask import Blueprint,redirect ,render_template,url_for,flash
-from flask_login import login_user,logout_user
+from flask_login import login_user,logout_user, current_user
 from pariksha.auth.forms import *
-from pariksha.models import User
+from pariksha.models import User,Student,Teacher
 from pariksha.auth.utils import send_reset_email,send_verification_email
 from pariksha import bcrypt,db
 
 auth = Blueprint("auth",__name__,template_folder="templates",static_folder="static")
 
+@auth.route("/register", methods = ["POST","GET"])
+def register():
+    if current_user == None:
+        form = RegistrationForm()
+        if form.validate_on_submit():
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
+            user = User(name = form.name.data, email = form.email.data,password = hashed_password)
+            if form.acc_type == "Student":
+                student = Student(user = user)
+                db.session.add(user)
+                db.session.add(student)
+            else:
+                teacher = Teacher(user = user)
+                db.session.add(user)
+                db.session.add(teacher)
+            db.session.commit()
+            send_verification_email(user)
+            flash("Your Account has been created and ready to be logged in !!", 'success')
+            return redirect(url_for("main.welcome"))
+        return render_template("register.html",form = form,title = "Register")
+
 @auth.route("/login", methods=["POST","GET"])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            if user.verified:
-                login_user(user, remember=False)    
-                flash("Logged in!!",'sucess')
-                return redirect(url_for("main.welcome"))
+    if current_user == None:
+        form = LoginForm()
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+            if user and bcrypt.check_password_hash(user.password, form.password.data):
+                if user.verified:
+                    if user.student is not None:
+                        login_user(user, remember=False)    
+                        flash("Logged in!!",'sucess')
+                        #student login route here
+                        return "Student Login"
+                    if user.teacher is not None:
+                        login_user(user, remember=False)    
+                        flash("Logged in!!",'sucess')
+                        #teacher login route here
+                        return "Teacher Login"
+                else:
+                    return "verify your account"
             else:
-                return "verify your account"
-        else:
-            return "not logged in"
-    return render_template("login.html",form = form, titile = "Login")
+                return "not logged in"
+        return render_template("login.html",form = form, titile = "Login")
 
 @auth.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("main.welcome"))
 
-
-@auth.route("/teachers")
-def toteachersn():
-    return render_template("Teachers.html")
-
-@auth.route("/student")
-def student():
-    return render_template("student.html")
-
-@auth.route("/home")
-def tohome():
-    return render_template("home.html")
-
-@auth.route("/register", methods = ["POST","GET"])
-def register():
-    
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-        user = User(email = form.email.data,password = hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        send_verification_email(user)
-        flash("Your Account has been created and ready to be logged in !!", 'success')
-        return redirect(url_for("main.welcome"))
-    else:
-        form.errors
-    return render_template("register.html",form = form,title = "Register")
 
 @auth.route("/verify_account/<token>")
 def verify(token):
@@ -65,7 +66,8 @@ def verify(token):
         return redirect(url_for("auth.login"))
     user.verified = True
     db.session.commit()
-    return "you have been verified"
+    flash("Your Account has been verified","success")
+    return redirect(url_for("auth.login"))
 
 @auth.route("/reset_password", methods=["GET", "POST"])
 def request_reset():
