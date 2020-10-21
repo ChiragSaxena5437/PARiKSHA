@@ -1,21 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class='jumbotron' style="background-color: rgba(240, 50, 208, 0.479); align-items:center; border-radius:20px; margin-top:20px">
-   <div style="font-size: large; align-items:center;"> <strong>PARiKSHA</strong> - Quiz Heading </div>
-</div>
-<div class='container' style="margin-top: 50px;  border:2.5px solid black; padding:20px; background-color:ivory;">
 
+
+<div class='jumbotron' style="background-color: rgba(240, 50, 208, 0.479); align-items:center; border-radius:20px; margin-top:20px">
+    <div style="font-size: large; align-items:center;"> <strong>PARiKSHA</strong> - Quiz Heading </div>
+</div>
+{% for x in questions %}
+<div class='container' style="margin-top: 50px;  border:2.5px solid black; padding:20px; background-color:ivory;">
+    
     <div class="container" style="background-color: bisque; border:2px solid #e43c5c; margin-top:10px">
         <h1>Ques no</h1>
         <h2>Question</h2>
         <img src="">
     </div>
-
-
-
+    
+    
+    
     <div class="container">
-
+        
         <div style="margin-top: 25px;">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="Radio1" value="option1" checked>
@@ -48,9 +51,10 @@
                 </label>
             </div>
         </div>
-
+        
     </div>
-
+    
 </div>
+{% endfor %}
 
 {% endblock content %}

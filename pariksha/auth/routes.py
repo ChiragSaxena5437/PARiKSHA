@@ -14,7 +14,7 @@ def register():
         if form.validate_on_submit():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
             user = User(name = form.name.data, email = form.email.data,password = hashed_password)
-            if form.acc_type == "Student":
+            if form.acc_type.data == "Student":
                 student = Student(user = user)
                 db.session.add(user)
                 db.session.add(student)
@@ -43,8 +43,7 @@ def login():
                     if user.teacher is not None:
                         login_user(user, remember=False)    
                         flash("Logged in!!",'sucess')
-                        #teacher login route here
-                        return "Teacher Login"
+                        return redirect(url_for('teacher.home'))
                 else:
                     return "verify your account"
             else:

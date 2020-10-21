@@ -11,3 +11,8 @@ def home():
         #return error page ERROR 403
         return "unauthorized acess attempted you have been logged out"
     return render_template("student_home.html")
+
+@student.route("/quiz")
+def quiz():
+    questions = [x for x in range(10)]
+    return render_template('quiz.html', questions = questions)
