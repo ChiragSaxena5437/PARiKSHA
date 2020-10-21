@@ -1392,21 +1392,27 @@ section {
 
     <nav class="nav-menu  d-none d-lg-block" style="margin-right: 50px;">
       <ul>
-        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="/#">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li><a href="#team">team</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li ><a href="/login">Login</a> </li>
+        
+        {% if current_user.is_authenticated %}
+        
+        <li class="nav-item nav-link" href="#">Account</li>
+        <li class="nav-item nav-link" href="#">Logout</li>
+        {% else %}
+        <li><a  class="active" class="nav-item nav-link" href=" /register">Register</a></li>
+        <li><a class="active" style="color: white;" class="nav-item nav-link" href="/login">Login</a></li>
+        {% endif %}
 
       </ul>
     </nav><!-- .nav-menu -->
 
   </div>
 </header>
-    <main role="main" >
+<body>
+      <main role="main" >
         
                 {% with messages = get_flashed_messages(with_categories = true ) %}
                 {% if messages %}
@@ -1420,6 +1426,9 @@ section {
                 {% block content %}{% endblock content %}
             
     </main>
+    
+</body>
+
     
 
 
@@ -1435,6 +1444,6 @@ section {
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 
-</body>
+
 
 </html>
