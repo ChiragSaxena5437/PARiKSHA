@@ -28,6 +28,11 @@ def create_app(config_class = Config):
     from pariksha.student.routes import student
     from pariksha.teacher.routes import teacher
 
+    #extra blueprint to be removed before production 
+    from pariksha.extra.routes import extra
+    app.register_blueprint(extra)
+
+
     app.register_blueprint(student)
     app.register_blueprint(teacher)
     app.register_blueprint(main)
@@ -35,37 +40,3 @@ def create_app(config_class = Config):
 
     return app
 
-#===================================
-
-# from flask import Flask
-# from flask_login import LoginManager
-# from flask_sqlalchemy import SQLAlchemy
-# from flask_mail import Mail
-# from flask_bcrypt import Bcrypt
-
-
-
-# app = Flask(__name__)
-
-# db = SQLAlchemy(app)
-
-# login_manager = LoginManager(app)
-# login_manager.login_message_category = "info"
-# login_manager.login_view = "auth.login"
-
-# mail = Mail(app)
-
-# bcrypt = Bcrypt(app)
-
-# from user.routes import user
-# from main.routes import main
-# from auth.routes import auth
-# from config import Config
-
-# app.config.from_object(Config)
-# app.register_blueprint(user)
-# app.register_blueprint(main)
-# app.register_blueprint(auth)
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
