@@ -10,4 +10,4 @@ def home():
         logout_user()
         #return error page ERROR 403
         return "unauthorized acess attempted you have been logged out"
-    return render_template('teacher_home.html')
+    return render_template('teacher_home.html',title = 'Home')
