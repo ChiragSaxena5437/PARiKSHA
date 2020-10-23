@@ -33,8 +33,10 @@ def quiz():
 
     for i in questions.keys():
         random.shuffle(questions[i])
+    
+    question_count = len(orig_questions)
 
-    return render_template('quiz.html', shuffled_questions = shuffled_q , questions = questions, title = "Quiz")
+    return render_template('quiz.html', shuffled_questions = shuffled_q , questions = questions, title = "Quiz", question_count = question_count)
 
 @student.route("/quiz", methods = ["POST"])
 def quiz_post():
