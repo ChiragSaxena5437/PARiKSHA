@@ -1,12 +1,24 @@
 {% extends "layout.html" %}
 {% block content%}
-
+<style>
+  .zoom {
+    
+    transition: transform .2s; /* Animation */
+    }
+  
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  </style>
 <div class="jumbotron" style="margin-top: 50px;">
 
     <div class="jumbotron" style=" background-color:pink; ">
-        <h1>Welcome! {{current_user.name}}</h1>
-        <h3><strong>Quote of the day :</strong> "{{quotes[0]}}"</h3>
-        
+        <h1>Welcome!</h1>
+        <h6>Signed in as student</h6>
+        <h5><strong>PARiKSHA</strong> allows to give exams under live A.I. monitoring and also allows to you submit assingements, see result. Go on See for yourself!</h5>
 
 
     </div>
@@ -18,11 +30,15 @@
             
             
                 <div class="card" style="width: 18rem; height: 23rem;">
-                    <img src="https://t3.ftcdn.net/jpg/02/34/37/84/240_F_234378496_LK9HJn2cdCq1zSKr19c8NwqDYgy2ouHz.jpg" class="card-img-top" alt="...">
+                  <div class="zoom">
+                    <img  src="https://t3.ftcdn.net/jpg/02/34/37/84/240_F_234378496_LK9HJn2cdCq1zSKr19c8NwqDYgy2ouHz.jpg" class="card-img-top" alt="...">
+                  </div>
                     <div class="card-body">
                         <h5 class="card-title">Start Test</h5>
                         <p class="card-text">Use PARiKSHA's - A.I. to give test.</p>
+                        <div class="zoom">
                         <a href="#" style="width: 15.25rem; margin-top:25px;" class="btn btn-danger">Start Test</a>
+                      </div>
                     </div>
                 </div>
             
@@ -30,11 +46,15 @@
         <div class="col mb-4">
             
             <div class="card" style="width: 18rem; height: 23rem;">
+              <div class="zoom">
                 <img src="https://t3.ftcdn.net/jpg/03/78/17/94/240_F_378179426_fanID4R9NLWcuenQSwio4f3mttmvUJfz.jpg" class="card-img-top" alt="...">
+              </div>
                 <div class="card-body">
-                    <h5 class="card-title">Start Test</h5>
+                    <h5 class="card-title">View Result</h5>
                     <p class="card-text">Visualize how you have performed</p>
+                    <div class="zoom">
                     <a href="#" style="width: 15.25rem;" class="btn btn-danger">View Result</a>
+                  </div>
                 </div>
             </div>
 
@@ -42,11 +62,16 @@
         <div class="col mb-4">
             
             <div class="card" style="width: 18rem; height: 23rem;">
+              <div class="zoom">
                 <img src="https://t3.ftcdn.net/jpg/03/22/02/90/240_F_322029005_GPIGKrc2R9zzcU2foU1GkbIucma54J0B.jpg" class="card-img-top" alt="...">
+              </div>
                 <div class="card-body">
-                    <h5 class="card-title">Start Test</h5>
+                    <h5 class="card-title">Submit Assingement</h5>
                     <p class="card-text">Submit your assingement</p>
+                    <div class="zoom">
+
                     <a href="#" style="width: 15.25rem; margin-top:28px;" class="btn btn-danger">Submit Assingement</a>
+                    </div>
                 </div>
             </div>
 
@@ -56,11 +81,16 @@
         <div class="col mb-4">
            
             <div class="card" style="width: 18rem; height: 23rem;">
+              <div class="zoom">
                 <img src="https://t4.ftcdn.net/jpg/02/90/44/61/240_F_290446151_BE5PueHXw3wAYvxxwcXIDwTxgrl6mRsn.jpg" class="card-img-top" alt="..." style="width: 286px; height:190.66px;">
+              </div>
                 <div class="card-body">
-                    <h5 class="card-title">Check Result</h5>
+                    <h5 class="card-title">View Performance</h5>
                     <p class="card-text">Check how you performed.</p>
+                    <div class="zoom">
+
                     <a href="#" style="width: 15.25rem; margin-top:22px;" class="btn btn-danger">Check Result</a>
+                    </div>
                 </div>
             </div>
 
