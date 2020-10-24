@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block content%}
+<style>
+  .zoom {
+
+    transition: transform .2s;
+    /* Animation */
+  }
+
+  .zoom:hover {
+    transform: scale(1.2);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  .button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .po:hover{
+      transition: transform .2s;
+  }
+  .po:hover
+  {
+      background-color: cyan;
+  }
+</style>
+<div class="jumbotron" style="margin-top: 50px;">
+
+  <div class="jumbotron" style=" background-color:pink; ">
+    
+    <h2>Quizes</h2>
+
+
+  </div>
+  {% for quiz in quiz_lis %}
+    
+  <div class="jumbotron">
+    <div class="example hoverable">
+      <div class="row" style="background-color: coral; height:50px; padding:10px; font-size:large;">
+        <div class="col" id="po" style="background-color: coral; ">
+          <strong ><a href="#">{{quiz.title}}</a></strong>
+        </div>
+        <div class="col-md-auto" style="background-color: coral; ">
+          <div>
+            {{quiz.start_time}}
+          </div>
+          <div>Submitted:</div>
+          {% if quiz.submitted == True %}
+          <div>
+            <img src="https://i1.wp.com/nahbnow.com/wp-content/uploads/2018/08/iStock-692279620.jpg" style="height:30px; ">
+          </div>
+          {% else %}
+          <div >
+            <img src="https://www.pinclipart.com/picdir/big/532-5329134_computer-icons-x-mark-clip-art-red-cross.png" style="height:30px; ">
+          </div>
+          {% endif %}
+        </div>
+        <div class="col col-lg-2"style="background-color: coral; ">
+          <div class="example hoverable zoom">
+            <a type="button" class="btn btn-danger" href = "{{url_for('main.welcome')}}" style="width: 150px; margin-top:-4px; margin-left:50px; background-color:e43c5c;">Attempt</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+<footer id="footer">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Pariksha</h3>
+          <p>
+            Bennett University <br>
+            Greater Noide, 201010<br>
+            India<br><br>
+            <strong>Phone:</strong> 6464763546715<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Online examination</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">AI proctoring</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Analystics on class and individual performance</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Quiz templates and Plagiarism detector services</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h2>PARiKSHA</h2>
+          <h4>
+            <p>
+              Pariksha is created with a motive of providing a unified platform to students and teachers so that the
+              process of learning and its quality does not reduces in these tough times.
+            </p>
+          </h4>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</footer>
+
+{% endblock content %}
