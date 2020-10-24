@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="parent_div">
+             <!-- This is just a sample div to show that only the desired div will be cloned. THIS ONE WON'T BE CLONED-->
+            <div id="sample_div">
+                <br>
+                <label>Label for the sample radio </label>
+                <input type="radio">
+            </div>
+            <!-- This is the div that would be cloned CHANGE ITS ID TO WHAT YOU WANT AND REFERENCE IN THE JS CODE BELOW-->
+            <div id="div_to_clone" class="divs" style="background-color:lightpink;color:blue">
+                <br>
+                <input type="text">
+                <br>
+                <button>Sample1</button>
+                <input type="radio">
+                <br>
+                <button>Sample2</button>
+                <br><br>
+            </div>
+            <!-- This is just a sample div to show that only the desired div will be cloned. THIS ONE WON'T BE CLONED-->
+            <div id="sample_div2">
+                <br>
+                <label>Label for sample text</label>
+                <input type="text">
+            </div>
+        </div>
+        <button type="button" id="clone_btn" class="btn btn-primary">Clone</button>
+
+        <script>$(document).ready(function(){
+            // This is the code that handles the click on the clone button
+            $('#clone_btn').click(function(){ 
+                // This is the code that clones the div with id "div_to_clone" just below the div "parent_div"
+              $("#parent_div").append($("#div_to_clone").clone());
+            });
+        });</script>
+
+</body>
+</html>
