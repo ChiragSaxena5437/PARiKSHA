@@ -27,6 +27,12 @@ def register():
             flash("Your Account has been created and ready to be logged in !!", 'success')
             return redirect(url_for("main.welcome"))
         return render_template("register.html",form = form,title = "Register")
+    else:
+        if current_user.student is not None:
+            return redirect(url_for('student.home'))
+        else:
+            return redirect(url_for('teacher.home'))
+
 
 @auth.route("/login", methods=["POST","GET"])
 def login():
@@ -38,17 +44,22 @@ def login():
                 if user.verified:
                     if user.student is not None:
                         login_user(user, remember=False)    
-                        flash("Logged in!!",'sucess')
                         return redirect(url_for('student.home'))
                     if user.teacher is not None:
                         login_user(user, remember=False)    
-                        flash("Logged in!!",'sucess')
                         return redirect(url_for('teacher.home'))
                 else:
-                    return "verify your account"
+                    flash(f"Your email has not been verified yet. A link has been sent to {user.email} for verification","warning")
+                    return redirect(url_for('auth.login'))
             else:
-                return "not logged in"
-        return render_template("login.html",form = form, titile = "Login")
+                flash("Incorrect email or password please try again","danger")
+                return redirect(url_for('auth.login'))
+        return render_template("login.html",form = form, title = "Login")
+    else:
+        if current_user.student is not None:
+            return redirect(url_for('student.home'))
+        else:
+            return redirect(url_for('teacher.home'))
 
 @auth.route("/logout")
 @login_required

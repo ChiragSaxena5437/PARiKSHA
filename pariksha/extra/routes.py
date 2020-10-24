@@ -7,7 +7,7 @@ extra = Blueprint('extra',__name__,template_folder='templates',url_prefix='/extr
 def extra_test():
     #enter the name of template (eg. 'test_temp.html')
     #add the templates in the templates folder in the extra module
-    return render_template("test.html")
+    return render_template("test_temp.html")
 
 
 @extra.route("/test1")
