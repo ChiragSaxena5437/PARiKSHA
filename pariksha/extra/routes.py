@@ -8,3 +8,10 @@ def extra_test():
     #enter the name of template (eg. 'test_temp.html')
     #add the templates in the templates folder in the extra module
     return render_template("test.html")
+
+
+@extra.route("/test1")
+def extra_test1():
+    #enter the name of template (eg. 'test_temp.html')
+    #add the templates in the templates folder in the extra module
+    return render_template("teacherinput.html")
