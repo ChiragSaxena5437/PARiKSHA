@@ -1,15 +1,22 @@
 {% extends "layout.html" %}
 {% block content%}
+
+<head>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
 <style>
     .zoom {
 
         transition: transform .2s;
-        
+
     }
 
     .zoom:hover {
         transform: scale(1.2);
-        
+
     }
 
     .button2:hover {
@@ -40,10 +47,35 @@
             width: 100%;
         }
     }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    #img-upload {
+        width: 100%;
+    }
 </style>
 <div class="jumbotron" style="margin-top: 50px;">
 
-    <p>
+
     <div class="jumbotron" style=" background-color:pink; ">
 
         <h2>
@@ -52,25 +84,44 @@
 
 
     </div>
-    </p>
 
+    <p>
     <div class="jumbotron">
-        <div class="container" style="background-color: coral; padding:60px;">
+        <div class="container" style="background-color: coral; padding:20px; border-radius:30px;">
             <div class="input-group mb-3" style="padding: 10px;">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Question No.</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Question" aria-label="Question"
-                        aria-describedby="basic-addon1">
+                    <!-- <input type="text" class="form-control" placeholder="Question" aria-label="Question"
+                        aria-describedby="basic-addon1">-->
+                    <textarea id="QuesIn" name="Question" rows="3" cols="106" style="border-radius: 5px; border:double;"
+                        aria-label="Question" placeholder="Enter Your Your Question"></textarea>
+
+                </div>
+                <div class="container">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Choose an image to use in your <strong>Quiz</strong></label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-default btn-file" style="background-color: #dc3545;">
+                                        Browse… <input type="file" id="imgInp">
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            <img id='' /><!--Use this tag to extract the image into-->
+                        </div>
+                    </div>
                 </div>
 
 
 
 
                 <div class="col">
-                    <div class="zoom" style="padding: 10px;">
+                    <div style="padding: 10px;">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -82,7 +133,8 @@
                     </div>
 
 
-                    <div class="zoom" style="padding: 10px;">
+
+                    <div style="padding: 10px;">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -92,7 +144,7 @@
                             <input type="text" class="form-control" aria-label="Text input with radio button">
                         </div>
                     </div>
-                    <div class="zoom" style="padding: 10px;">
+                    <div style="padding: 10px;">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -102,7 +154,7 @@
                             <input type="text" class="form-control" aria-label="Text input with radio button">
                         </div>
                     </div>
-                    <div class="zoom" style="padding: 10px;">
+                    <div style="padding: 10px;">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -114,7 +166,6 @@
                     </div>
 
 
-                    <p>
                     <div style="margin-top: 20px;">
                         <div style="background-color: coral; ">
                             <div class="example hoverable">
@@ -123,19 +174,13 @@
                             </div>
                         </div>
                     </div>
-                    </p>
+
 
                 </div>
             </div>
-
-
-
-
         </div>
-
-
-
     </div>
+    </p>
 </div>
 <footer id="footer">
 
@@ -196,5 +241,43 @@
 
 
 </footer>
+<script>
+
+    $(document).ready(function () {
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this),
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function (event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+</script>
 
 {% endblock content %}
