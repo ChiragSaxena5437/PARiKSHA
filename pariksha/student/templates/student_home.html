@@ -17,7 +17,7 @@
         {% if messages %}
         {% for category,message in messages %}
         <div class="alert alert-{{category}} mt-5">
-          {{message}}
+          <h3>{{message}}</h3>
         </div>
         {% endfor %}
         {% endif %}
@@ -42,10 +42,10 @@
                     <img  src="https://t3.ftcdn.net/jpg/02/34/37/84/240_F_234378496_LK9HJn2cdCq1zSKr19c8NwqDYgy2ouHz.jpg" class="card-img-top" alt="...">
                   </div>
                     <div class="card-body">
-                        <h5 class="card-title">Start Test</h5>
-                        <p class="card-text">Use PARiKSHA's - A.I. to give test.</p>
+                        <h5 class="card-title">Attempt Quiz</h5>
+                        <p class="card-text">Click on the button below to view all active quizzes</p>
                         <div class="zoom">
-                        <a href="#" style="width: 15.25rem; margin-top:25px;" class="btn btn-danger">Start Test</a>
+                        <a href="{{url_for('student.list_quiz')}}" style="width: 15.25rem; margin-top:5px;" class="btn btn-danger">Attemp Quiz</a>
                       </div>
                     </div>
                 </div>

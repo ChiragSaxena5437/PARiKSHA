@@ -34,6 +34,9 @@ def quiz(quiz_id):
     if quiz.teacher_id not in teacher_id_list:
         flash("You are not allowed to access the page you requested","warning")
         return redirect(url_for('student.home'))
+    if not quiz.active:
+        flash("The quiz you are trying to attemp is not active right now","warning")
+        return redirect(url_for('student.home'))
        
     questions = quiz.questions
     orig_questions = dict()
@@ -49,12 +52,15 @@ def quiz(quiz_id):
     
     question_count = len(orig_questions)
 
-    return render_template('quiz.html', shuffled_questions = shuffled_q , questions = questions, title = "Quiz", question_count = question_count)
+    return render_template('quiz.html', title = quiz.title, shuffled_questions = shuffled_q , questions = questions, question_count = question_count)
 
 @student.route("/quiz/<int:quiz_id>", methods = ["POST"])
 def quiz_post(quiz_id):
 
     quiz = Quiz.query.filter_by(id = quiz_id).first_or_404()
+    if not quiz.active:
+        flash('QUIZ NOT SUBMITTED The quiz you are trying to submit has expired','danger')
+        return redirect(url_for('student.home'))
     if quiz in current_user.student.submitted_quiz:
         flash('You have already submitted this quiz!!','warning')
         return redirect(url_for('student.home'))
@@ -87,8 +93,10 @@ def list_quiz():
         logout_user()
         return redirect(url_for('main.welcome'))
     teachers_lis = current_user.student.taught_by.all()
-    quiz_lis = [quiz for teacher in teachers_lis for quiz in teacher.quiz_created]
-    return render_template('quiz_list.html',quiz_lis = quiz_lis)
+    quiz_list = [quiz for teacher in teachers_lis for quiz in teacher.quiz_created]
+    quiz_list = [quiz for quiz in quiz_list if quiz.active]
+    quiz_exists = bool(len(quiz_list))
+    return render_template('quiz_list.html',quiz_list = quiz_list,quiz_exists = quiz_exists, title = "Quizzes")
     
     
 
