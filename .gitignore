@@ -41,6 +41,9 @@ __pycache__*
 *.cypython-37.pyc
 */__pycache__
 
+pariksha/__pycache__/
+pariksha/auth/__pycache__/
+pariksha/main/__pycache__/
 
 env/
 env*
