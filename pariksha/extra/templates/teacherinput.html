@@ -78,9 +78,9 @@
    -->
 
 
-    <div class="jumbotron" style="margin-top: -50;">
+    <div class="jumbotron" style="margin-top: -50;" id="parent_div">
         <!-- <==========Start Cloning from here-->
-        <div class="container" style="background-color: coral; padding:20px; border-radius:30px;">
+        <div class="container" style="background-color: coral; padding:20px; border-radius:30px;" id="div_to_clone">
             <div class="input-group mb-3" style="padding: 10px;">
 
                 <div class="input-group mb-3">
@@ -159,7 +159,7 @@
 
                             <div class="example hoverable">
                                 <button type="button" class="btn btn-danger"
-                                    style="width: 150px; margin-top:-4px; background-color:#e43c5c;">
+                                    style="width: 150px; margin-top:-4px; background-color:#e43c5c;" id="clone_btn">
                                     Clone
                                 </button>
                             </div>
@@ -275,5 +275,11 @@
         });
     });
 </script>
+
+<script>$(document).ready(function(){
+    $('#clone_btn').click(function(){ 
+      $("#parent_div").append($("#div_to_clone").clone());
+    });
+});</script>
 
 {% endblock content %}
