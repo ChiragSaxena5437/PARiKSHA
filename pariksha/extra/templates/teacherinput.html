@@ -101,7 +101,7 @@
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <span class="btn btn-default btn-file" style="background-color: #dc3545;">
-                                            Browse… <input name = "photo-url" type="file" id="imgInp">
+                                            Browse… <input name="photo-url1" type="file" id="imgInp">
                                         </span>
                                     </span>
                                     <input type="text" class="form-control" readonly>
@@ -116,7 +116,7 @@
                         <div style="padding: 10px;">
                             <div class="input-group">
 
-                                <input type="text" name="option a" class="form-control" aria-label="Text input with radio button">
+                                <input type="text" name="Option1A" class="form-control" aria-label="Text input with radio button" id="OptionA">
                             </div>
                         </div>
 
@@ -125,19 +125,19 @@
                         <div style="padding: 10px;">
                             <div class="input-group">
 
-                                <input type="text" name="option b" class="form-control" aria-label="Text input with radio button">
+                                <input type="text" name="Option1B" class="form-control" aria-label="Text input with radio button" id="OptionB">
                             </div>
                         </div>
                         <div style="padding: 10px;">
                             <div class="input-group">
 
-                                <input type="text" name="option c" class="form-control" aria-label="Text input with radio button">
+                                <input type="text" name="Option1C" class="form-control" aria-label="Text input with radio button" id="OptionC">
                             </div>
                         </div>
                         <div style="padding: 10px;">
                             <div class="input-group">
 
-                                <input type="text" name="option d" class="form-control" aria-label="Text input with radio button">
+                                <input type="text" name="Option1D" class="form-control" aria-label="Text input with radio button" id="OptionD">
                             </div>
                         </div>
                     </div>
@@ -273,6 +273,13 @@
         var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
         var $clone = $div.clone().prop('id', 'form_instance' + num);
         $div.after($clone);
+        $clone.find('#QuesIn').attr('name', 'Question' + num);
+        $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
+        $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
+        $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
+        $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
+        $clone.find('#imgInp').attr('name', 'photo-url' + num);
+
     });
 </script>
 
