@@ -74,98 +74,85 @@
     </div>
 
 
-   <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+    <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
    -->
 
+    <form method="POST"><!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+        <div class="jumbotron" id="parent_div">
+            <!-- <==========Start Cloning from here-->
+            <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
+                id="div_to_clone">
+                <div class="input-group mb-3" style="padding: 10px;">
 
-    <div class="jumbotron" style="margin-top:;" id="parent_div">
-        <!-- <==========Start Cloning from here-->
-        <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;" id="div_to_clone">
-            <div class="input-group mb-3" style="padding: 10px;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Question No.</span>
+                        </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Question No.</span>
+                        <textarea id="QuesIn" name="Question" rows="3" cols="106"
+                            style="border-radius: 5px; border:double;" aria-label="Question"
+                            placeholder="Enter Your Your Question"></textarea>
+
                     </div>
-
-                    <textarea id="QuesIn" name="Question" rows="3" cols="106" style="border-radius: 5px; border:double;"
-                        aria-label="Question" placeholder="Enter Your Your Question"></textarea>
-
-                </div>
-                <div class="container">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Choose an image to use in your <strong>Quiz</strong></label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <span class="btn btn-default btn-file" style="background-color: #dc3545;">
-                                        Browse… <input type="file" id="imgInp">
+                    <div class="container">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Choose an image to use in your <strong>Quiz</strong></label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file" style="background-color: #dc3545;">
+                                            Browse… <input type="file" id="imgInp">
+                                        </span>
                                     </span>
-                                </span>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <img id='' />
-                            <!--Use this tag to extract the image into-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control" aria-label="Text input with radio button">
-                        </div>
-                    </div>
-
-
-
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control" aria-label="Text input with radio button">
-                        </div>
-                    </div>
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control" aria-label="Text input with radio button">
-                        </div>
-                    </div>
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-
-                            <input type="text" class="form-control" aria-label="Text input with radio button">
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-end" style="padding: 20px;">
-                        <div >
-                        <div style="margin-top: 20px;">
-                            <div style="background-color: coral; ">
-                                <div class="example hoverable">
-                                    <button type="button" class="btn btn-danger"
-                                        style="width: 150px; margin-top:-4px; background-color:#e43c5c;">
-                                        Submit
-                                    </button>
+                                    <input type="text" class="form-control" readonly>
                                 </div>
+                                <img id='' />
+                                <!--Use this tag to extract the image into-->
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col">
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                            </div>
                         </div>
 
 
 
-                        
-                    </div>
+                        <div style="padding: 10px;">
+                            <div class="input-group">
 
+                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                            </div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                            </div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div><!-- <==== Clone till here-->
+        <!-- <==== Clone till here-->
+    </form><!-- <======= Form tag end ========>-->
 
 
-<div class="row justify-content-end">
-    <div style=" margin-right:100px;">
+    <div class="row justify-content-center">
+
 
         <div class="example hoverable">
             <button type="button" class="btn btn-danger"
@@ -173,8 +160,16 @@
                 Clone
             </button>
         </div>
+
+        <div class="example hoverable">
+            <button type="button" class="btn btn-danger"
+                style="width: 150px; margin-top:-4px; background-color:#e43c5c; margin-left:40px;">
+                Submit
+            </button>
+        </div>
+
+
     </div>
-</div>
 
 </div>
 
@@ -277,10 +272,10 @@
     });
 </script>
 
-<script>$(document).ready(function(){
-    $('#clone_btn').click(function(){ 
-      $("#parent_div").append($("#div_to_clone").clone());
-    });
-});</script>
+<script>$(document).ready(function () {
+        $('#clone_btn').click(function () {
+            $("#parent_div").append($("#div_to_clone").clone());
+        });
+    });</script>
 
 {% endblock content %}
