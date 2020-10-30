@@ -279,7 +279,9 @@
         $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
         $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
         $clone.find('#imgInp').attr('name', 'photo-url' + num);
-
+        $clone.find("input[type='text']").val('');
+        $clone.find("textarea").val('');
+        $clone.find("#imgInp").val('');
     });
 </script>
 
