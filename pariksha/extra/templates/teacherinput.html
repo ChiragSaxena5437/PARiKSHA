@@ -78,10 +78,10 @@
    -->
 
     <form method="POST"><!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
-        <div class="jumbotron" id="parent_div">
+        <div class="jumbotron">
             <!-- <==========Start Cloning from here-->
             <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
-                id="div_to_clone">
+                id="form_instance1">
                 <div class="input-group mb-3" style="padding: 10px;">
 
                     <div class="input-group mb-3">
@@ -272,10 +272,13 @@
     });
 </script>
 
-<script>$(document).ready(function () {
-        $('#clone_btn').click(function () {
-            $("#parent_div").append($("#div_to_clone").clone());
-        });
-    });</script>
+<script>
+    $('#clone_btn').click(function() {
+        var $div = $('div[id^="form_instance"]:last');
+        var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+        var $clone = $div.clone().prop('id', 'form_instance' + num);
+        $div.after($clone);
+    });
+</script>
 
 {% endblock content %}
