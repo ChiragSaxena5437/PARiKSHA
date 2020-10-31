@@ -1,0 +1,38 @@
+<html>
+<head>
+<!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>-->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+<script src="webcam.js"></script>
+</head>
+<body>
+<!--
+    <img id="img" src="mob.jpg"></img>
+    <div id="output" style="font-family:courier;font-size:24px;height=300px"></div>
+-->
+    <div>
+		<div>
+			<video autoplay playsinline muted id="wc" width="224" height="224"></video>
+		</div>
+	</div>
+    <button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
+    <button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
+    <div id="prediction"></div>
+</body>
+<!--
+<script>
+//    async function run(){
+//        const img = document.getElementById('img');
+//        const outp = document.getElementById('output');
+//        const MODEL_URL = 'http://127.0.0.1:8887/model.json';
+//        const model = await tf.loadLayersModel(MODEL_URL);
+//        console.log('Successfully loaded model');
+//        console.log(model.summary());
+//        let tensor = tf.browser.fromPixels(img).resizeNearestNeighbor([224, 224]).toFloat().expandDims();
+//        const result = await model.predict(tensor).data();
+//        alert(result);
+//	}
+//	run();
+</script>
+-->
+<script src="mobile.js"></script>
+</html>
