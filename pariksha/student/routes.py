@@ -55,6 +55,7 @@ def quiz(quiz_id):
     return render_template('quiz.html', title = quiz.title, shuffled_questions = shuffled_q , questions = questions, question_count = question_count)
 
 @student.route("/quiz/<int:quiz_id>", methods = ["POST"])
+@login_required
 def quiz_post(quiz_id):
 
     quiz = Quiz.query.filter_by(id = quiz_id).first_or_404()

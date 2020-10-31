@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template,request
 
 extra = Blueprint('extra',__name__,template_folder='templates',url_prefix='/extra')
 
@@ -10,11 +10,15 @@ def extra_test():
     return render_template("test_temp.html")
 
 
-@extra.route("/test1")
+@extra.route("/test1", methods = ['POST','GET'])
 def extra_test1():
     #enter the name of template (eg. 'test_temp.html')
     #add the templates in the templates folder in the extra module
-    return render_template("teacherinput.html")
+    if request.method == 'POST':
+        print(request.form)
+        return request.form
+    elif request.method == 'GET':
+        return render_template("teacherinput.html")
 
 @extra.route("/test2")
 def extra_test2():
