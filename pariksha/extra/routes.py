@@ -15,6 +15,7 @@ def extra_test1():
     #enter the name of template (eg. 'test_temp.html')
     #add the templates in the templates folder in the extra module
     if request.method == 'POST':
+        print(request.form)
         return request.form
     elif request.method == 'GET':
         return render_template("teacherinput.html")
