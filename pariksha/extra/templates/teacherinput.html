@@ -68,16 +68,55 @@
         <h2>
             Add all the questions here that you want to see in your <strong>Quiz</strong>
         </h2>
-        <h3>Some instructions:</h3>
+        <hr style="width:100%;text-align:left;margin-left:0">
+        <h5>Some instructions:</h5>
         <ul>Enter the correct answer in the first text area option</ul>
         <ul>The options would be shuffled for all the students</ul>
+        <hr style="width:100%;text-align:left;margin-left:0">
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!--############################### V Quiz title date-->
+                <span class="input-group-text" id="Quiztitle-addon1">Question No.</span>
+            </div>
+
+            <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
+                aria-label="Question" placeholder="Enter the quiz title"></textarea>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!-- ############################## start date tag V-->
+                <span class="input-group-text" id="Start_date-addon1">Start Date</span>
+            </div>
+
+
+            <input type="datetime-local" value="2000-01-01T00:00:00" />
+            
+            
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!--############################### V end date tag-->
+                <span class="input-group-text" id="End_date-addon1">Start Date</span>
+            </div>
+
+            <input type="datetime-local" value="2000-01-01T00:00:00" />
+
+        </div>
+
     </div>
+
 
 
     <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
    -->
 
-    <form method="POST"><!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+    <form method="POST">
+        <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
         <div class="jumbotron" id="parent_div">
             <!-- <==========Start Cloning from here-->
             <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
@@ -120,7 +159,12 @@
                             </div>
                         </div>
 
+                        <div style="padding: 10px;">
+                            <div class="input-group">
 
+                                <input type="text" class="form-control" aria-label="Text input with radio button">
+                            </div>
+                        </div>
 
                         <div style="padding: 10px;">
                             <div class="input-group">
@@ -128,18 +172,20 @@
                                 <input type="text" class="form-control" aria-label="Text input with radio button">
                             </div>
                         </div>
+
                         <div style="padding: 10px;">
                             <div class="input-group">
 
                                 <input type="text" class="form-control" aria-label="Text input with radio button">
                             </div>
                         </div>
-                        <div style="padding: 10px;">
-                            <div class="input-group">
+                        <div class="input-group-prepend" style="margin-left: 10px;">
+                            <!--############################### V enter marks tag-->
+                            <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
+                            <input type="text" style="width: 50px;" value="5" />
 
-                                <input type="text" class="form-control" aria-label="Text input with radio button">
-                            </div>
                         </div>
+
 
 
 
@@ -149,6 +195,8 @@
         </div>
         <!-- <==== Clone till here-->
     </form><!-- <======= Form tag end ========>-->
+    <hr style="width:100%;text-align:left;margin-left:0">
+
 
 
     <div class="row justify-content-center">
