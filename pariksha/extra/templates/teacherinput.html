@@ -173,7 +173,7 @@
                     <div class="input-group-prepend" style="margin-left: 10px;">
                         <!--############################### V enter marks tag-->
                         <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
-                        <input type="number" min = 1 max = 10 name = "marks1" style="width: 50px;" value = 1 required />
+                        <input type="number" min = 1 max = 10 id="Marks" name = "marks1" style="width: 50px;" value = 1 required />
 
                     </div>
 
@@ -316,11 +316,13 @@
         var $clone = $div.clone().prop('id', 'form_instance' + num);
         $div.after($clone);
         $clone.find('#QuesIn').attr('name', 'Question' + num);
+        $clone.find('#Marks').attr('name', 'marks' + num);
         $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
         $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
         $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
         $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
         $clone.find('#imgInp').attr('name', 'photo-url' + num);
+        $clone.find("input[type='number']").val('');
         $clone.find("input[type='text']").val('');
         $clone.find("textarea").val('');
         $clone.find("#imgInp").val('');
