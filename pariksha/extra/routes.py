@@ -16,14 +16,13 @@ def extra_test1():
     #add the templates in the templates folder in the extra module
     if request.method == 'POST':
         response = request.form
-        # no_of_questions = len(response)/5
-        # list_of_questions = dict()
-        # for num in range(1,int(no_of_questions)+1):
-        #     question_key = "Question"+str(num)
-        #     question = [ response[question_key] ,response["Option"+str(num)+"A"] ,response["Option"+str(num)+"B"] ,response["Option"+str(num)+"C"] ,response["Option"+str(num)+"D"] ]
-        #     list_of_questions[num] = question
-        # return list_of_questions
-        return response
+        no_of_questions = len(response)/5
+        list_of_questions = dict()
+        for num in range(1,int(no_of_questions)+1):
+            question_key = "Question"+str(num)
+            question = [ response[question_key] ,response["Option"+str(num)+"A"] ,response["Option"+str(num)+"B"] ,response["Option"+str(num)+"C"] ,response["Option"+str(num)+"D"], response["Marks"+str(num)]]
+            list_of_questions[num] = question
+        return list_of_questions
     elif request.method == 'GET':
         return render_template("teacherinput.html")
 

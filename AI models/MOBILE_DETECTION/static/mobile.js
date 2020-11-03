@@ -4,7 +4,7 @@ const webcam = new Webcam(document.getElementById('wc'));
 let isPredicting = false;
 
 async function loadMobilenet() {
-    const mobilenet = await tf.loadLayersModel('http://127.0.0.1:8887/model.json');
+    const mobilenet = await tf.loadLayersModel('http://127.0.0.1:5000/model.json');
 //  const outputl = mobilenet.getOutputAt('sequential_19');
     return mobilenet;
 //  return tf.model({inputs: mobilenet.inputs, outputs: outputl.output});

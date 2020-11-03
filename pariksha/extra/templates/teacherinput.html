@@ -74,41 +74,39 @@
         <ul>The options would be shuffled for all the students</ul>
         <hr style="width:100%;text-align:left;margin-left:0">
 
-        <form method="POST">
-            <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <!--############################### V Quiz title date-->
-                    <span class="input-group-text" id="Quiztitle-addon1">Quiz Title</span>
-                </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!--############################### V Quiz title date-->
+                <span class="input-group-text" id="Quiztitle-addon1">Question No.</span>
+            </div>
 
-                <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
-                    aria-label="Question" placeholder="Enter the quiz title"></textarea>
+            <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
+                aria-label="Question" placeholder="Enter the quiz title"></textarea>
 
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!-- ############################## start date tag V-->
+                <span class="input-group-text" id="Start_date-addon1">Start Date</span>
             </div>
 
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <!-- ############################## start date tag V-->
-                    <span class="input-group-text" id="Start_date-addon1">Start Date</span>
-                </div>
+            <input type="date" >
+            
+            
+        </div>
 
-
-                <input type="datetime-local" name = "start-date" value="2000-01-01T00:00:00" />
-
-
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <!--############################### V end date tag-->
+                <span class="input-group-text" id="End_date-addon1">Start Date</span>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <!--############################### V end date tag-->
-                    <span class="input-group-text" id="End_date-addon1">Start Date</span>
-                </div>
+            <input type="datetime-local" value="2000-01-01T00:00:00" />
 
-                <input type="datetime-local" name = 'end-date' value="2000-01-01T00:00:00" />
-
-            </div>
+        </div>
 
     </div>
 
@@ -117,78 +115,87 @@
     <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
    -->
 
-    <div class="jumbotron">
+    <form method="POST"><!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+        <div class="jumbotron">
 
-        <!-- <==========Start Cloning from here-->
-        <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
-            id="form_instance1">
-            <div class="input-group mb-3" style="padding: 10px;">
+            <!-- <==========Start Cloning from here-->
+            <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
+                id="form_instance1">
+                <div class="input-group mb-3" style="padding: 10px;">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Question</span>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Question</span>
+                        </div>
+
+                        <textarea id="QuesIn" name="Question1" rows="3" cols="106"
+                            style="border-radius: 5px; border:double;" aria-label="Question"
+                            placeholder="Enter Your Your Question" class = 'mt-2'></textarea>
+
                     </div>
-
-                    <textarea id="QuesIn" name="Question1" rows="3" cols="106"
-                        style="border-radius: 5px; border:double;" aria-label="Question"
-                        placeholder="Enter Your Your Question" class='mt-2' required></textarea>
-
-                </div>
-                <div class="container">
-                    <div class="col-md-6">
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-                            <input type="text" name="Option1A" class="form-control"
-                                aria-label="Text input with radio button" id="OptionA" required>
+                    <div class="container">
+                        <div class="col-md-6">
+                            <!-- <div class="form-group">
+                                <label>Choose an image to use in your <strong>Quiz</strong></label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file" style="background-color: #dc3545;">
+                                            Browse… <input name="photo-url1" type="file" name = "photo_url" id="imgInp">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                                <img id='' />
+                            </div> -->
                         </div>
                     </div>
 
-                    <div style="padding: 10px;">
-                        <div class="input-group">
-
-                            <input type="text" name="Option1B" class="form-control"
-                                aria-label="Text input with radio button" id="OptionB" required>
+                    <div class="col">
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+                                <input type="text" name="Option1A" class="form-control" aria-label="Text input with radio button" id="OptionA">
+                            </div>
                         </div>
-                    </div>
 
-                    <div style="padding: 10px;">
-                        <div class="input-group">
+                        <div style="padding: 10px;">
+                            <div class="input-group">
 
-                            <input type="text" name="Option1C" class="form-control"
-                                aria-label="Text input with radio button" id="OptionC" required>
+                                <input type="text" name="Option1B" class="form-control" aria-label="Text input with radio button" id="OptionB">
+                            </div>
                         </div>
-                    </div>
 
-                    <div style="padding: 10px;">
-                        <div class="input-group">
+                        <div style="padding: 10px;">
+                            <div class="input-group">
 
-                            <input type="text" name="Option1D" class="form-control"
-                                aria-label="Text input with radio button" id="OptionD" required>
+                                <input type="text" name="Option1C" class="form-control" aria-label="Text input with radio button" id="OptionC">
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group-prepend" style="margin-left: 10px;">
-                        <!--############################### V enter marks tag-->
-                        <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
-                        <input type="number" min = 1 max = 10 id="Marks" name = "marks1" style="width: 50px;" value = 1 required />
+
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" name="Option1D" class="form-control" aria-label="Text input with radio button" id="OptionD">
+                            </div>
+                        </div>
+                        <div class="input-group-prepend" style="margin-left: 10px;">
+                            <!--############################### V enter marks tag-->
+                            <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
+                            <input type="number" min = 1 style="width: 50px;" value="1" name="Marks1" id="Marks" />
+
+                        </div>
+
+
+
 
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
-    </div>
-    <!-- <==== Clone till here-->
-    <div class="example hoverable">
-        <input type="submit" value="Submit" class="btn btn-danger"
-            style="width: 150px; margin-top:-4px; background-color:#e43c5c; margin-left:40px;">
-    </div>
+        <!-- <==== Clone till here-->
+        <div class="example hoverable">
+            <input type="submit" value = "Submit" class="btn btn-danger"
+                style="width: 150px; margin-top:-4px; background-color:#e43c5c; margin-left:40px;">
+        </div>
     </form><!-- <======= Form tag end ========>-->
     <hr style="width:100%;text-align:left;margin-left:0">
 
@@ -310,13 +317,13 @@
 </script>
 
 <script>
-    $('#clone_btn').click(function () {
+    $('#clone_btn').click(function() {
         var $div = $('div[id^="form_instance"]:last');
         var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
         var $clone = $div.clone().prop('id', 'form_instance' + num);
         $div.after($clone);
         $clone.find('#QuesIn').attr('name', 'Question' + num);
-        $clone.find('#Marks').attr('name', 'marks' + num);
+        $clone.find('#Marks').attr('name', 'Marks' + num);
         $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
         $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
         $clone.find('#OptionC').attr('name', 'Option' + num + 'C');

@@ -1,0 +1,329 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<head>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    .zoom {
+
+        transition: transform .2s;
+
+    }
+
+    .zoom:hover {
+        transform: scale(1.2);
+
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .po:hover {
+        transition: transform .2s;
+    }
+
+    .po:hover {
+        background-color: cyan;
+    }
+
+
+
+
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    #img-upload {
+        width: 100%;
+    }
+</style>
+<form method="POST">
+    <div class="jumbotron" style="margin-top: 50px;">
+
+
+
+        <div class="jumbotron" style=" background-color:pink; ">
+
+            <h2>
+                Add all the questions here that you want to see in your <strong>Quiz</strong>
+            </h2>
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <h5>Some instructions:</h5>
+            <ul>Enter the correct answer in the first text area option</ul>
+            <ul>The options would be shuffled for all the students</ul>
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+            <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <!--############################### V Quiz title date-->
+                    <span class="input-group-text" id="Quiztitle-addon1">Quiz Title</span>
+                </div>
+
+                <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
+                    aria-label="Question" placeholder="Enter the quiz title"></textarea>
+
+            </div>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <!-- ############################## start date tag V-->
+                    <span class="input-group-text" id="Start_date-addon1">Start Date</span>
+                </div>
+
+                <input type="date" name='start_time'>
+
+
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <!--############################### V end date tag-->
+                    <span class="input-group-text" id="End_date-addon1">End Date</span>
+                </div>
+
+                <input type="date" name='end_time'>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+   -->
+
+        <div class="jumbotron">
+
+            <!-- <==========Start Cloning from here-->
+            <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
+                id="form_instance1">
+                <div class="input-group mb-3" style="padding: 10px;">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Question</span>
+                        </div>
+
+                        <textarea id="QuesIn" name="Question1" rows="3" cols="106"
+                            style="border-radius: 5px; border:double;" aria-label="Question"
+                            placeholder="Enter Your Your Question" class='mt-2'></textarea>
+
+                    </div>
+
+                    <div class="col">
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+                                <input type="text" name="Option1A" class="form-control"
+                                    aria-label="Text input with radio button" id="OptionA">
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" name="Option1B" class="form-control"
+                                    aria-label="Text input with radio button" id="OptionB">
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" name="Option1C" class="form-control"
+                                    aria-label="Text input with radio button" id="OptionC">
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px;">
+                            <div class="input-group">
+
+                                <input type="text" name="Option1D" class="form-control"
+                                    aria-label="Text input with radio button" id="OptionD">
+                            </div>
+                        </div>
+                        <div class="input-group-prepend" style="margin-left: 10px;">
+                            <!--############################### V enter marks tag-->
+                            <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
+                            <input type="number" min=1 style="width: 50px;" value="1" name="Marks1" id="Marks" />
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <==== Clone till here-->
+        <div class="example hoverable">
+            <input type="submit" value="Submit" class="btn btn-danger"
+                style="width: 150px; margin-top:-4px; background-color:#e43c5c; margin-left:40px;">
+        </div>
+</form><!-- <======= Form tag end ========>-->
+
+<hr style="width:100%;text-align:left;margin-left:0">
+
+
+
+<div class="row justify-content-center">
+
+
+    <div class="example hoverable">
+        <button type="button" class="btn btn-danger" style="width: 150px; margin-top:-4px; background-color:#e43c5c;"
+            id="clone_btn">
+            Clone
+        </button>
+    </div>
+
+
+
+</div>
+
+
+
+<footer id="footer">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Pariksha</h3>
+                    <p>
+                        Bennett University <br>
+                        Greater Noide, 201010<br>
+                        India<br><br>
+                        <strong>Phone:</strong> 6464763546715<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Online examination</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">AI proctoring</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Analystics on class and individual
+                                performance</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Quiz templates and Plagiarism detector
+                                services</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h2>PARiKSHA</h2>
+                    <h4>
+                        <p>
+                            Pariksha is created with a motive of providing a unified platform to students and teachers
+                            so that the
+                            process of learning and its quality does not reduces in these tough times.
+                        </p>
+                    </h4>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+<script>
+
+    $(document).ready(function () {
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this),
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function (event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+</script>
+
+<script>
+    $('#clone_btn').click(function () {
+        var $div = $('div[id^="form_instance"]:last');
+        var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+        var $clone = $div.clone().prop('id', 'form_instance' + num);
+        $div.after($clone);
+        $clone.find('#QuesIn').attr('name', 'Question' + num);
+        $clone.find('#Marks').attr('name', 'Marks' + num);
+        $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
+        $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
+        $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
+        $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
+        $clone.find('#imgInp').attr('name', 'photo-url' + num);
+        $clone.find("input[type='number']").val('');
+        $clone.find("input[type='text']").val('');
+        $clone.find("textarea").val('');
+        $clone.find("#imgInp").val('');
+    });
+</script>
+
+{% endblock content %}
