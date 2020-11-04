@@ -6,6 +6,12 @@
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <style>
     .zoom {
@@ -60,10 +66,17 @@
         width: 100%;
     }
 </style>
-<div class="jumbotron" style="margin-top: 50px;">
+<div class="jumbotron" style="margin-top: 50px; background-image: url('https://i.ibb.co/QMLRCXV/cool-background.png'); height: 100%;
 
 
-    <div class="jumbotron" style=" background-color:pink; ">
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+padding:70px;">
+
+
+    <div class="container"
+        style=" background-image:url('https://i.ibb.co/fCKHQMh/cool-background-1.png'); padding:50px; border-radius:30px;">
 
         <h2>
             Add all the questions here that you want to see in your <strong>Quiz</strong>
@@ -93,9 +106,9 @@
             </div>
 
 
-            <input type="date" >
-            
-            
+            <input type="date">
+
+
         </div>
 
         <div class="input-group mb-3">
@@ -115,22 +128,31 @@
     <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
    -->
 
-    <form method="POST"><!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
-        <div class="jumbotron">
+    <form method="POST">
+        <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+        <div>
 
             <!-- <==========Start Cloning from here-->
-            <div class="container" style="background-color: coral; padding:20px; border-radius:30px; margin-top:50px;"
+            <div class="container"
+                style="background-image:url('<img src=https://i.ibb.co/zGY72W0/cool-background-2.png'); padding:20px; border-radius:30px; margin-top:50px;"
                 id="form_instance1">
                 <div class="input-group mb-3" style="padding: 10px;">
 
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Question</span>
+
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h3 class="mb-0">
+
+                                    Question No X
+
+                                </h3>
+                            </div>
                         </div>
 
-                        <textarea id="QuesIn" name="Question1" rows="3" cols="106"
+                        <textarea id="QuesIn" name="Question1" rows="3" cols="109"
                             style="border-radius: 5px; border:double;" aria-label="Question"
-                            placeholder="Enter Your Your Question" class = 'mt-2'></textarea>
+                            placeholder="Enter Your Your Question Here" class='mt-2'></textarea>
 
                     </div>
                     <div class="container">
@@ -151,36 +173,70 @@
                     </div>
 
                     <div class="col">
-                        <div style="padding: 10px;">
-                            <div class="input-group">
-                                <input type="text" name="Option1A" class="form-control" aria-label="Text input with radio button" id="OptionA">
+
+
+                        <div class="form-group row">
+                            <label for="Option A" class="col-sm-2 col-form-label" style="color: white;">For Option
+                                A</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
+                                        <input type="text" name="Option1A" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionA">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="padding: 10px;">
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label for="Option B" class="col-sm-2 col-form-label" style="color: white;">For Option
+                                B</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
 
-                                <input type="text" name="Option1B" class="form-control" aria-label="Text input with radio button" id="OptionB">
+                                        <input type="text" name="Option1B" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionB">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="padding: 10px;">
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label for="Option C" class="col-sm-2 col-form-label" style="color: white;">For Option
+                                C</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
 
-                                <input type="text" name="Option1C" class="form-control" aria-label="Text input with radio button" id="OptionC">
+                                        <input type="text" name="Option1C" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionC">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="padding: 10px;">
-                            <div class="input-group">
+                        <div class="form-group row">
+                            <label for="Option D" class="col-sm-2 col-form-label" style="color: white;">For Option
+                                D</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
 
-                                <input type="text" name="Option1D" class="form-control" aria-label="Text input with radio button" id="OptionD">
+                                        <input type="text" name="Option1D" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionD">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="input-group-prepend" style="margin-left: 10px;">
+                        <div class="input-group-prepend" style="margin-left: 0px;">
                             <!--############################### V enter marks tag-->
-                            <span class="input-group-text" id="Enter_Marks-addon1">Enter marks for question</span>
-                            <input type="number" min = 1 style="width: 50px;" value="1" name="Marks1" id="Marks" />
+                            <span class="input-group-text" id="Enter_Marks-addon1"
+                                style="border-top-left-radius: 10px; border-bottom-left-radius:10px;">Enter marks
+                                for question</span>
+                            <input type="number" min=1
+                                style="width: 50px; border-top-right-radius: 10px; border-bottom-right-radius:10px;"
+                                value="1" name="Marks1" id="Marks" />
 
                         </div>
 
@@ -192,12 +248,14 @@
             </div>
         </div>
         <!-- <==== Clone till here-->
-        <div class="example hoverable">
-            <input type="submit" value = "Submit" class="btn btn-danger"
-                style="width: 150px; margin-top:-4px; background-color:#e43c5c; margin-left:40px;">
+        <div class="row justify-content-center">
+            <div class="example hoverable">
+                <input type="submit" value="Submit" class="btn btn-danger"
+                    style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
+            </div>
         </div>
     </form><!-- <======= Form tag end ========>-->
-    <hr style="width:100%;text-align:left;margin-left:0">
+    <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
 
 
 
@@ -209,7 +267,17 @@
                 style="width: 150px; margin-top:-4px; background-color:#e43c5c;" id="clone_btn">
                 Clone
             </button>
+
+            
+                <a href="#" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Plus
+                </a>
+            
+
+
         </div>
+
+
 
 
 
@@ -317,7 +385,7 @@
 </script>
 
 <script>
-    $('#clone_btn').click(function() {
+    $('#clone_btn').click(function () {
         var $div = $('div[id^="form_instance"]:last');
         var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
         var $clone = $div.clone().prop('id', 'form_instance' + num);
