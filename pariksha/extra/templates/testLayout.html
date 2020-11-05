@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+    .PrimaryNav {
+        list-style: none;
+        margin: 50px auto;
+        max-width: 720px;
+        padding: 0;
+        width: 100%;
+    }
+
+    .Nav-item {
+        background: #fff;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 20%;
+        text-align: center;
+    }
+
+    .Nav-item:first-child {
+        border-radius: 3px 0 0 3px;
+    }
+
+    .Nav-item:last-child {
+        border-radius: 0 3px 3px 0;
+    }
+
+    .Nav-item.is-active a {
+        color: #e82d00;
+    }
+
+    .Nav-item a {
+        color: #121212;
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-decoration: none;
+    }
+
+    .Nav-item a:hover {
+        color: #e82d00;
+    }
+
+    .with-indicator {
+        position: relative;
+        z-index: 0;
+    }
+
+    .with-indicator .Nav-item:last-child:before,
+    .with-indicator .Nav-item:last-child:after {
+        content: '';
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        -webkit-transition: left 1.3s ease;
+        transition: left 1.3s ease;
+    }
+
+    .with-indicator .Nav-item:last-child:before {
+        border: 6px solid transparent;
+        border-top-color: #e82d00;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 10%;
+        margin-left: -3px;
+    }
+
+    .with-indicator .Nav-item:last-child:after {
+        background: #e82d00;
+        top: -6px;
+        bottom: -6px;
+        left: 0;
+        width: 20%;
+        z-index: -1;
+    }
+
+    .with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:after {
+        left: 0%;
+    }
+
+    .with-indicator .Nav-item:nth-child(1).is-active~.Nav-item:last-child:before {
+        left: 10%;
+    }
+
+    .with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:after {
+        left: 20%;
+    }
+
+    .with-indicator .Nav-item:nth-child(2).is-active~.Nav-item:last-child:before {
+        left: 30%;
+    }
+
+    .with-indicator .Nav-item:nth-child(3).is-active~.Nav-item:last-child:after {
+        left: 40%;
+    }
+
+    .with-indicator .Nav-item:nth-child(3).is-active~.Nav-item:last-child:before {
+        left: 50%;
+    }
+
+    .with-indicator .Nav-item:nth-child(4).is-active~.Nav-item:last-child:after {
+        left: 60%;
+    }
+
+    .with-indicator .Nav-item:nth-child(4).is-active~.Nav-item:last-child:before {
+        left: 70%;
+    }
+
+    .with-indicator .Nav-item:nth-child(1):hover~.Nav-item:last-child:after {
+        left: 0% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(1):hover~.Nav-item:last-child:before {
+        left: 10% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(2):hover~.Nav-item:last-child:after {
+        left: 20% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(2):hover~.Nav-item:last-child:before {
+        left: 30% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(3):hover~.Nav-item:last-child:after {
+        left: 40% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(3):hover~.Nav-item:last-child:before {
+        left: 50% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(4):hover~.Nav-item:last-child:after {
+        left: 60% !important;
+    }
+
+    .with-indicator .Nav-item:nth-child(4):hover~.Nav-item:last-child:before {
+        left: 70% !important;
+    }
+
+    .with-indicator .Nav-item:last-child:hover:before,
+    .with-indicator .Nav-item:last-child.is-active:before {
+        left: 90% !important;
+    }
+
+    .with-indicator .Nav-item:last-child:hover:after,
+    .with-indicator .Nav-item:last-child.is-active:after {
+        left: 80% !important;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    .PrimaryNav:before,
+    .PrimaryNav:after {
+        content: " ";
+        display: table;
+    }
+
+    .PrimaryNav:after {
+        clear: both;
+    }
+
+    html {
+        background-color: #121212;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+    }
+
+    .toggle {
+        color: #fff;
+        font-family: sans-serif;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCenteredExample"
+                aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class=" justify-content-center" id="navbarCenteredExample">
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <a class="navbar-brand" href="#">
+                        <img style="align-items: center;" src="https://i.ibb.co/mz2xSqT/icon.jpg" width="50" height="50"
+                            class="d-inline-block align-center" alt="">
+                        PARiKSHA
+                    </a>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+    <nav>
+        <ul class="PrimaryNav with-indicator">
+            <li class="Nav-item is-active"><a href="#">Home</a></li>
+            <li class="Nav-item"><a href="#">About</a></li>
+            <li class="Nav-item"><a href="#">Contact</a></li>
+            <li class="Nav-item"><a href="#">Login</a></li>
+            <li class="Nav-item"><a href="#">Sign Up</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="jumbotron" style="background-image: url(https://i.ibb.co/QMLRCXV/cool-background.png);">
+        <h3>This is the new tempeate</h3>
+        <li>Disadvanteges</li>
+        <ul>The number of buttons would remain same Like they are discrete</ul>
+    </div>
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="col">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>Pariksha</h3>
+                        <p>
+                            Bennett University <br>
+                            Greater Noide, 201010<br>
+                            India<br><br>
+                            <strong>Phone:</strong> 6464763546715<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Online examination</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">AI proctoring</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Analystics on class and individual
+                                    performance</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Quiz templates and Plagiarism detector
+                                    services</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h2>PARiKSHA</h2>
+                        <h4>
+                            <p>
+                                Pariksha is created with a motive of providing a unified platform to students and
+                                teachers
+                                so that the
+                                process of learning and its quality does not reduces in these tough times.
+                            </p>
+                        </h4>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>
