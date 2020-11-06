@@ -118,6 +118,27 @@ def view_result():
     return str(quiz_submitted)
 
     
-    
-
+@student.route('/add_teacher', methods = ['GET','POST'])
+@login_required
+def add_teacher():
+    if current_user.student is None:
+        flash('Access Denied','danger')
+        return redirect(url_for('teacher.home'))
+    if request.method == 'GET':
+        return render_template('add_teacher.html',title = 'Add Teacher')
+    if request.method == 'POST':
+        teacher_id = request.form['teacher_id']
+        teacher = Teacher.query.filter_by(id = teacher_id).first()
+        if teacher is None:
+            flash(f'Teacher with teacher id {teacher_id} does not exist','danger')
+            return redirect(url_for('student.add_teacher'))
+        if current_user.student in teacher.students:
+            flash('The teacher is already added','info')
+            return redirect(url_for('student.add_teacher'))
+        teacher.students.append(current_user.student)
+        db.session.commit()
+        flash('Teacher has been added','success')
+        return redirect(url_for('student.add_teacher'))
+            
+        
 

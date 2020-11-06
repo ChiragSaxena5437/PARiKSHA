@@ -21,7 +21,7 @@
         </div>
         {% endfor %}
         {% endif %}
-        {% endwith %}
+  {% endwith %}
 <div class="jumbotron" style="margin-top: 50px;">
 
     <div class="jumbotron" style=" background-color:pink; ">
@@ -74,11 +74,11 @@
                 <img src="https://t3.ftcdn.net/jpg/03/22/02/90/240_F_322029005_GPIGKrc2R9zzcU2foU1GkbIucma54J0B.jpg" class="card-img-top" alt="...">
               </div>
                 <div class="card-body">
-                    <h5 class="card-title">Submit Assingement</h5>
-                    <p class="card-text">Submit your assingement</p>
+                    <h5 class="card-title">Add Teacher</h5>
+                    <p class="card-text">Add teacher so to get access to the exams created by them</p>
                     <div class="zoom">
 
-                    <a href="#" style="width: 15.25rem; margin-top:28px;" class="btn btn-danger">Submit Assingement</a>
+                    <a href="{{url_for('student.add_teacher')}}" style="width: 15.25rem; margin-top:15px;" class="btn btn-danger">Submit Assingement</a>
                     </div>
                 </div>
             </div>
