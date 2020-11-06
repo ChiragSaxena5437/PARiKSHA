@@ -1349,67 +1349,32 @@ section {
     <title>Pariksha</title>
     {% endif %}
 </head>
-
-<body>
-  <!--
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="{{ url_for('main.welcome') }}">Pariksha</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="#">Home</a>
-                        <a class="nav-item nav-link" href="#">About</a>
-                    </div>
-                    Navbar Right Side 
-                    <div class="navbar-nav">
-                        {% if current_user.is_authenticated %}
-                        <a class="nav-item nav-link" href="#">Account</a>
-                        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
-                        {% else %}
-                        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
-                        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
--->
-<header id="header" class="site header">
-  <div class="d-flex align-items-center fixed-top" style="background-color: black; padding:10px; ">
+<header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">PARiKSHA</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+              aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav ml-auto">
+                  {% if current_user.is_authenticated %}
+                  <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+                  {% else %}
+                  <a class="nav-item nav-link" href="{{url_for('main.welcome')}}">Home</a>
+                  <!-- add the scroll feature here -->
+                  <a class="nav-item nav-link" href="#">About</a>
+                  <a class="nav-item nav-link" href="{{url_for('auth.register')}}">Register</a>
+                  <a class="nav-item nav-link" href="{{url_for('auth.login')}}">Login</a>
+                  {% endif %}
+              </div>
+          </div>
+      </div>
+  </nav>
+</header>
     
-    <img src="https://lh3.googleusercontent.com/vZ17CFghXNaAkanRbQneCtnRnUindB-_QCJim7vIf7fPJPGvZCI_uRxC5xvXIpTjjiJ9DjDASKvEYOiohEHf=w1919-h903" style="height: 75px; margin-left: 50px; border-radius:2px;">
-  
-    <h1 class="logo mr-auto" style="margin-left:10px;"><a href="index.html">PARiKSHA</a></h1>
-
-    <!-- for image logo -->
-    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-    <nav class="nav-menu  d-none d-lg-block" style="margin-right: 50px;">
-      <ul>
-        <li class="active"><a href="/#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#team">team</a></li>
-        <li><a href="#contact">Contact</a></li>
-        
-        {% if current_user.is_authenticated %}
-        
-        <li class="nav-item nav-link" href="#">Account</li>
-        <li class="nav-item nav-link" href="#">Logout</li>
-        {% else %}
-        <li><a  class="active" class="nav-item nav-link" href=" /register">Register</a></li>
-        <li><a class="active" style="color: white;" class="nav-item nav-link" href="/login">Login</a></li>
-        {% endif %}
-
-      </ul>
-    </nav><!-- .nav-menu -->
-
-  </div>
 </header>
 <body>
       <main role="main" >

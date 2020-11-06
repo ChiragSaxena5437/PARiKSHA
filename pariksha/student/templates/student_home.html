@@ -16,7 +16,7 @@
   {% with messages = get_flashed_messages(with_categories = true ) %}
         {% if messages %}
         {% for category,message in messages %}
-        <div class="alert alert-{{category}} mt-5">
+        <div style="margin-top: 70px;" class="alert alert-{{category}}">
           <h3>{{message}}</h3>
         </div>
         {% endfor %}
