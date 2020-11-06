@@ -24,10 +24,12 @@
     background-color: cyan;
   }
 </style>
-<div class="jumbotron" style="margin-top: 50px;">
+<div class="jumbotron" style="margin-top: 50px; background-color:white;">
 
   <div class="jumbotron" style=" background-color:pink; ">
+    <!--the Pink box with border-->
 
+    <!--<div class="jumbotron" style=" background-color:pink; border-radius:black solid;">-->
     <h2>All Active Quizzes are Listed Below</h2>
 
 
@@ -38,7 +40,7 @@
   {% if not(quiz_exists) %}
 
 
-  <div class="jumbotron" style="background-color: white;  height:350px;">\
+  <div class="jumbotron" style="background-color: white;  ">
     <div class="d-flex justify-content-center">
       <h1>No Active Quizzes Right Now</h1>
     </div>
@@ -46,6 +48,7 @@
       <h3>Please refresh if you are expecting a quiz right now...<h3>
     </div>
   </div>
+  <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
   {% endif %}
 
   {% for quiz in quiz_list %}
@@ -54,23 +57,49 @@
   <div class="jumbotron" style="background-color: white;  height:150px;">
 
     <div class="example hoverable">
-      <div class="row" style=" height:0px; padding:0px; font-size:large; margin-top:-30px;">
-        <div class="col" id="po" style="background-color: coral; ">
-            <h3 class="pt-3 pl-2"><strong>Quiz ID : {{quiz.id}}  <span class="ml-5 pl-5"> {{quiz.title}}</span></strong></h3>
-        </div>
-        <div class="col-md-auto" style="background-color: coral; padding:20px;">
-          <div>
 
+      <div class="container" >
+        <div class="row" style=" height:0px; padding:0px; font-size:large; margin-top:-30px; border-radius:black solid;">
+          <div class="col" id="po" style="background-color:mistyrose;border-radius:black solid;  ">
+           <!-- blue  <div class="col" id="po" style="background-color:aqua;border-radius:black solid;  ">-->
+           <!-- orange  <div class="col" id="po" style="background-color:coral;border-radius:black solid;  ">-->
+           <!-- shadeinpink <div class="col" id="po" style="background-color:lightpink;border-radius:black solid;  ">-->
+           <!-- shadeinorange  <div class="col" id="po" style="background-color:lightcoral;border-radius:black solid;  ">-->
+
+
+
+            <h3 class="pt-3 pl-2"><strong>Quiz ID : {{quiz.id}} <span class="ml-5 pl-5"> {{quiz.title}}</span></strong>
+            </h3>
+            
           </div>
-        </div>
-        <div class="col col-lg-2" style="background-color: coral; padding:20px; ">
-          <div class="example hoverable zoom">
-            <a type="button" class="btn btn-success" href="{{url_for('student.quiz',quiz_id = quiz.id)}}"
-              style="width: 150px; margin-top:-4px; margin-left:20px; background-color:e43c5c;">Attempt</a>
+          <div class="col-md-auto" style="background-color:mistyrose; padding:20px;">
+            <!-- shades in same occurrance match the above one here -->
+            <!--<div class="col-md-auto" style="background-color:aqua; padding:20px;">-->
+            <!--<div class="col-md-auto" style="background-color:coral; padding:20px;">-->
+            <!--<div class="col-md-auto" style="background-color:lightpink; padding:20px;">-->
+            <!--<div class="col-md-auto" style="background-color:lightcoral; padding:20px;">-->
+
+              
+          </div>
+          
+
+          
+          <div class="col col-lg-2" style="background-color: mistyrose; padding:20px; ">
+            <!-- Match here also -->
+            <!--<div class="col col-lg-2" style="background-color: aqua; padding:20px; ">-->
+            <!--<div class="col col-lg-2" style="background-color: coral; padding:20px; ">-->
+            <!--<div class="col col-lg-2" style="background-color: lightpink; padding:20px; ">-->
+            <!--<div class="col col-lg-2" style="background-color: lightcoral; padding:20px; ">-->
+
+            <div class="example hoverable zoom">
+              <a type="button" class="btn btn-success" href="{{url_for('student.quiz',quiz_id = quiz.id)}}"
+                style="width: 150px; margin-top:-4px; margin-left:px; background-color:#e43c5c;">Attempt</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
   </div><!-- <==== end here-->
   {% endfor %}
 
