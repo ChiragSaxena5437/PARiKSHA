@@ -91,13 +91,32 @@ def quiz_post(quiz_id):
 @login_required
 def list_quiz():
     if current_user.student is None:
-        logout_user()
-        return redirect(url_for('main.welcome'))
+        flash('Access Denied','danger')
+        return redirect(url_for('teacher.home'))
     teachers_lis = current_user.student.taught_by.all()
     quiz_list = [quiz for teacher in teachers_lis for quiz in teacher.quiz_created]
     quiz_list = [quiz for quiz in quiz_list if quiz.active]
     quiz_exists = bool(len(quiz_list))
     return render_template('quiz_list.html',quiz_list = quiz_list,quiz_exists = quiz_exists, title = "Quizzes")
+
+
+@student.route("/view_result")
+@login_required
+def view_result():
+    if current_user.student is None:
+        flash('Access Denied','danger')
+        return redirect(url_for('teacher.home'))
+    student = current_user.student
+    quiz_submitted_query = tuple(db.session.execute(f'SELECT * FROM submits_quiz WHERE student_id = {student.id};'))
+    quiz_submitted = list()
+    
+    for quiz in quiz_submitted_query:
+        quiz_title = Quiz.query.filter_by(id = quiz[1]).first().title
+        all_marks = list(db.session.execute(f'SELECT marks FROM submits_quiz WHERE quiz_id = {quiz[1]}'))
+        all_marks = [x[0] for x in all_marks]
+        quiz_submitted.append(dict(quiz_title = quiz_title,marks = quiz[3],all_marks = all_marks ))
+    return str(quiz_submitted)
+
     
     
 

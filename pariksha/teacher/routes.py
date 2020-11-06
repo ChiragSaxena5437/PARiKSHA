@@ -6,6 +6,7 @@ import datetime
 
 teacher = Blueprint('teacher',__name__,url_prefix="/teacher",template_folder='templates')
 
+
 @teacher.route('/home')
 @login_required
 def home():
@@ -13,6 +14,7 @@ def home():
         flash("Permission denied to access the page",'danger')
         return redirect(url_for('student.home'))
     return render_template('teacher_home.html',title = 'Home')
+
 
 @teacher.route("/create_new_quiz")
 @login_required
@@ -22,12 +24,12 @@ def create_new_quiz():
         return redirect(url_for('student.home'))
     return render_template('teacher_input.html',title = 'Create Quiz')
 
+
 @teacher.route("/create_new_quiz", methods = ['POST'])
 @login_required
 def create_new_quiz_post():
     current_teacher = current_user.teacher
     response = request.form
-    #return response
     no_of_questions = len(response)/6
     total_marks = 0
     start_time = response['start_time']
@@ -50,6 +52,14 @@ def create_new_quiz_post():
 
     flash('The Quiz has been created', 'success')
     return redirect(url_for('teacher.home'))
+
+@teacher.route('/activate_quizzes')
+@login_required
+def activate_quizzes():
+    if current_user.teacher is None:
+        flash('Access Denide','danger')
+        return redirect(url_for('student.home'))
+    return "HOLA"
 
 
 
