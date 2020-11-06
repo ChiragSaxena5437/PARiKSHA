@@ -31,3 +31,9 @@ def extra_test2():
     #enter the name of template (eg. 'test_temp.html')
     #add the templates in the templates folder in the extra module
     return render_template("test.html")
+@extra.route("/testid")
+def extra_testid():
+    #enter the name of template (eg. 'test_temp.html')
+    #add the templates in the templates folder in the extra module
+    return render_template("teacherId.html")
+

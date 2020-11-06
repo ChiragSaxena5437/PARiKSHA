@@ -66,7 +66,7 @@
         width: 100%;
     }
 </style>
-<div class="jumbotron" style="margin-top: 50px; background-image: url('https://i.ibb.co/QMLRCXV/cool-background.png'); height: 100%;
+<div class="jumbotron" style="margin-top: 50px; background-color:white; height: 100%;
 
 
 background-position: center;
@@ -75,8 +75,7 @@ background-size: cover;
 padding:70px;">
 
 
-    <div class="container"
-        style=" background-image:url('https://i.ibb.co/fCKHQMh/cool-background-1.png'); padding:50px; border-radius:30px;">
+    <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
 
         <h2>
             Add all the questions here that you want to see in your <strong>Quiz</strong>
@@ -87,38 +86,51 @@ padding:70px;">
         <ul>The options would be shuffled for all the students</ul>
         <hr style="width:100%;text-align:left;margin-left:0">
 
-        <div class="input-group mb-3">
+        <!--<div class="input-group mb-3">
             <div class="input-group-prepend">
-                <!--############################### V Quiz title date-->
+                
                 <span class="input-group-text" id="Quiztitle-addon1">Question No.</span>
             </div>
 
             <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
                 aria-label="Question" placeholder="Enter the quiz title"></textarea>
 
-        </div>
-
+        </div>-->
 
         <div class="input-group mb-3">
+            <h3>Quiz Title</h3>
+            <input type="text" class="form-control" name="title " id="Quiz_title" placeholder="Enter Quiz Title"
+                aria-describedby="basic-addon3">
+        </div>
+
+        <!--
+        <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <!-- ############################## start date tag V-->
+              
                 <span class="input-group-text" id="Start_date-addon1">Start Date</span>
             </div>
-
-
             <input type="date">
-
-
         </div>
-
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <!--############################### V end date tag-->
+            
                 <span class="input-group-text" id="End_date-addon1">Start Date</span>
             </div>
-
             <input type="datetime-local" value="2000-01-01T00:00:00" />
+        </div>-->
 
+        <div class="input-group">
+            <div class="container">
+                <div class="row" style="">
+                    <div class="input-group-prepend" style="margin-left: 5px;">
+                        <!-- ############################## start date tag V-->
+                       <h5 >Start Date  :</h5>
+                    </div>
+                    <input type="datetime-local" style="margin-left: 5px;" value="2000-01-01T00:00:00" />
+                    <h5 style="margin-left: 15px;">End Date  :</h5>
+                    <input type="datetime-local" style="margin-left: 5px;" value="2000-01-01T00:00:00" />
+                </div>
+            </div>
         </div>
 
     </div>
@@ -134,27 +146,34 @@ padding:70px;">
 
             <!-- <==========Start Cloning from here-->
             <div class="container"
-                style="background-image:url('<img src=https://i.ibb.co/zGY72W0/cool-background-2.png'); padding:20px; border-radius:30px; margin-top:50px;"
+                style="background-color:whitesmoke; color:black; padding:20px; border-radius:30px; margin-top:50px; padding:15px;"
                 id="form_instance1">
-                <div class="input-group mb-3" style="padding: 10px;">
+                <div  style="padding: 10px;">
 
-                    <div class="input-group mb-3">
 
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h3 class="mb-0">
 
-                                    Question No X
+                    <div class="card" style="background-color:rebeccapurple; border-radius:10px;">
+                        <div class="card-header" id="headingOne" style="color:#e43c5c;">
+                            <h3 class="mb-0">
 
-                                </h3>
-                            </div>
+                                Question No X
+
+                            </h3>
                         </div>
 
-                        <textarea id="QuesIn" name="Question1" rows="3" cols="109"
+
+                        <!--<textarea id="QuesIn" name="Question1" rows="3" cols="109"
                             style="border-radius: 5px; border:double;" aria-label="Question"
-                            placeholder="Enter Your Your Question Here" class='mt-2'></textarea>
+                            placeholder="Enter Your Your Question Here" class='mt-2'></textarea>-->
+
+
+                        <input type="text" class="form-control" name="Question1" id="QuesIn"
+                            placeholder="Enter Question" aria-describedby="basic-addon3">
 
                     </div>
+
+    <hr >
+
                     <div class="container">
                         <div class="col-md-6">
                             <!-- <div class="form-group">
@@ -172,59 +191,59 @@ padding:70px;">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col" style="border-style:solid; padding:10px;">
 
 
                         <div class="form-group row">
-                            <label for="Option A" class="col-sm-2 col-form-label" style="color: white;">For Option
+                            <label for="Option A" class="col-sm-2 col-form-label" style=" margin-top:10px;">For Option
                                 A</label>
                             <div class="col-sm-9">
-                                <div style="padding: 0px; margin-left:-50px;">
+                                <div style="padding: 0px; margin-left:-50px; margin-top:10px;">
                                     <div class="input-group">
                                         <input type="text" name="Option1A" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionA">
+                                            aria-label="Text input with radio button" id="OptionA" placeholder="Enter Option value this must be correct">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Option B" class="col-sm-2 col-form-label" style="color: white;">For Option
+                            <label for="Option B" class="col-sm-2 col-form-label" >For Option
                                 B</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1B" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionB">
+                                            aria-label="Text input with radio button" id="OptionB" placeholder="Enter Option value">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Option C" class="col-sm-2 col-form-label" style="color: white;">For Option
+                            <label for="Option C" class="col-sm-2 col-form-label">For Option
                                 C</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1C" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionC">
+                                            aria-label="Text input with radio button" id="OptionC" placeholder="Enter Option value">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Option D" class="col-sm-2 col-form-label" style="color: white;">For Option
+                            <label for="Option D" class="col-sm-2 col-form-label" >For Option
                                 D</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1D" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionD">
+                                            aria-label="Text input with radio button" id="OptionD" placeholder="Enter Option value">
                                     </div>
                                 </div>
                             </div>
@@ -247,33 +266,33 @@ padding:70px;">
                 </div>
             </div>
         </div>
-        <!-- <==== Clone till here-->
-        <div class="row justify-content-center">
-            <div class="example hoverable">
-                <input type="submit" value="Submit" class="btn btn-danger"
-                    style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
-            </div>
-        </div>
+     
     </form><!-- <======= Form tag end ========>-->
     <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
 
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-end">
 
-                <a class="btn btn-info btn-lg" id="clone_btn">
-                    <span class="glyphicon glyphicon-plus-sign"></span> Plus
-                </a>
-            
-
-
-        </div>
-
-
+        <a class="btn btn-info btn-lg" id="clone_btn">
+            <span class="glyphicon glyphicon-plus-sign"></span> Add another question
+        </a>
 
 
 
     </div>
+   <!-- <==== Clone till here-->
+   <div class="row justify-content-center">
+    <div class="example hoverable">
+        <input type="submit" value="Submit" class="btn btn-danger"
+            style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
+    </div>
+</div>
+
+
+
+
+</div>
 
 </div>
 

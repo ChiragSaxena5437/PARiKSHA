@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<head>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+    .zoom {
+
+        transition: transform .2s;
+
+    }
+
+    .zoom:hover {
+        transform: scale(1.2);
+
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .po:hover {
+        transition: transform .2s;
+    }
+
+    .po:hover {
+        background-color: cyan;
+    }
+
+
+
+
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    #img-upload {
+        width: 100%;
+    }
+</style>
+<div class="jumbotron" style="margin-top: 50px;  height: 100%;
+
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+padding:70px;">
+
+    <div class="col" style="padding: px;">
+
+        <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
+
+            <h2>
+                <strong> Heading </strong>
+            </h2>
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <h5>Some Description</h5>
+            <ul>XYZ</ul>
+            <ul>ABC</ul>
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+        </div>
+
+        <div class="container" style="background-color:white; border-radius:30px; margin-top:30px;">
+            <h3>Let's see how well you know your teacher <strong>??</strong></h3>
+
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+            <div class="container" style="padding:20px;">
+                <label for="basic-url">Ask for the teacher/student id-</label>
+                <div class="input-group ">
+                    
+                    <input type="text" class="form-control" id="teacher_id" name="Its_on_u_vibhu"
+                        aria-describedby="basic-addon3" placeholder="Enter the Id here ">
+                </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top: 20px; color:blue; padding:20px;">
+                <button class="btn btn-primary btn-lg " type="submit">Submit</button>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+
+
+<footer id="footer">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Pariksha</h3>
+                    <p>
+                        Bennett University <br>
+                        Greater Noide, 201010<br>
+                        India<br><br>
+                        <strong>Phone:</strong> 6464763546715<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Online examination</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">AI proctoring</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Analystics on class and individual
+                                performance</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Quiz templates and Plagiarism detector
+                                services</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h2>PARiKSHA</h2>
+                    <h4>
+                        <p>
+                            Pariksha is created with a motive of providing a unified platform to students and
+                            teachers
+                            so that the
+                            process of learning and its quality does not reduces in these tough times.
+                        </p>
+                    </h4>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+{% endblock content %}
