@@ -62,6 +62,30 @@ def activate_quizzes():
     return "HOLA"
 
 
+@teacher.route('/view_performance')
+@login_required
+def view_performance():
+    if current_user.teacher is None:
+        flash('Access Denide','danger')
+        return redirect(url_for('student.home'))
+    teacher = current_user.teacher
+    quiz_list = list(teacher.quiz_created) 
+    quiz_exists = bool(len(quiz_list))
+    return render_template('quiz_list_teacher.html',title = 'View Performace', quiz_list = quiz_list, quiz_exists = quiz_exists)
+
+@teacher.route('/view_performance/<int:quiz_id>')
+@login_required
+def view_performance_quiz(quiz_id):
+    if current_user.teacher is None:
+        flash('Access Denide','danger')
+        return redirect(url_for('student.home'))
+    quiz = Quiz.query.filter_by(id = quiz_id).first_or_404()
+    teacher = current_user.teacher
+    marks = list(db.session.execute(f'SELECT student_id,marks FROM submits_quiz WHERE quiz_id = {quiz_id}'))
+
+    
+
+
 
 
 
