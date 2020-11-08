@@ -1352,7 +1352,7 @@ section {
 <header class="site-header">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <div class="container">
-          <a class="navbar-brand" href="#">PARiKSHA</a>
+          <a class="navbar-brand">PARiKSHA</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
               aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -1361,7 +1361,12 @@ section {
               <!-- Navbar Right Side -->
               <div class="navbar-nav ml-auto">
                   {% if current_user.is_authenticated %}
-                  <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+                    {% if current_user.student %}
+                      <a class="nav-item nav-link" href="{{url_for('student.home')}}">Home</a>
+                    {% else %}
+                      <a class="nav-item nav-link" href="{{url_for('teacher.home')}}">Home</a>
+                    {% endif %}
+                    <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Logout</a>
                   {% else %}
                   <a class="nav-item nav-link" href="{{url_for('main.welcome')}}">Home</a>
                   <!-- add the scroll feature here -->
@@ -1378,16 +1383,6 @@ section {
 </header>
 <body>
       <main role="main" >
-        
-                {% with messages = get_flashed_messages(with_categories = true ) %}
-                {% if messages %}
-                {% for category,message in messages %}
-                <div class="alert alert-{{category}}">
-                    {{message}}
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endwith %}
                 {% block content %}{% endblock content %}
             
     </main>
