@@ -1,76 +1,12 @@
 {% extends "layout.html" %}
 {% block content%}
 
-<head>
 
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-</head>
-<style>
-    .zoom {
-
-        transition: transform .2s;
-
-    }
-
-    .zoom:hover {
-        transform: scale(1.2);
-
-    }
-
-    .button2:hover {
-        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .po:hover {
-        transition: transform .2s;
-    }
-
-    .po:hover {
-        background-color: cyan;
-    }
-
-
-
-
-
-    .btn-file {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-file input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        outline: none;
-        background: white;
-        cursor: inherit;
-        display: block;
-    }
-
-    #img-upload {
-        width: 100%;
-    }
-</style>
 {% with messages = get_flashed_messages(with_categories = true ) %}
         {% if messages %}
         {% for category,message in messages %}
-        <div style="margin-top: -20px;" class="alert alert-{{category}} ">
-          <h3 style="margin-top: -2px; text-align: center;">{{message}}</h3>
+        <div  class=" alert alert-{{category}} mt-5 ">
+          <h3 style="padding-top: 5px; text-align: center;">{{message}}</h3>
         </div>
         {% endfor %}
         {% endif %}
