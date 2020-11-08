@@ -3,6 +3,7 @@ from flask_login import login_required,current_user,logout_user
 from pariksha import db
 from pariksha.student.utils import shuffle,random
 from pariksha.models import Student,Teacher,Quiz
+from pariksha.student.utils import bar_graph
 import copy
 
 
@@ -115,7 +116,10 @@ def view_result():
         all_marks = list(db.session.execute(f'SELECT marks FROM submits_quiz WHERE quiz_id = {quiz[1]}'))
         all_marks = [x[0] for x in all_marks]
         quiz_submitted.append(dict(quiz_title = quiz_title,marks = quiz[3],all_marks = all_marks ))
-    return str(quiz_submitted)
+    graph = bar_graph(quiz_submitted)
+
+    return render_template('view_result.html',graph = graph, title = 'Your Performance')
+    
 
     
 @student.route('/add_teacher', methods = ['GET','POST'])

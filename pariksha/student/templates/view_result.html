@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- do whatever you want with this div  -->
+<div id="chart" style="margin-top: 200px; width: 800px;">
+    <embed type="image/svg+xml" src= {{ graph|safe }} />
+ </div>
+{% endblock content %}
