@@ -84,9 +84,11 @@ def request_reset():
     form = RequestResetForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            flash(f'{form.email.data} is not registered for any account','danger')
+            return redirect(url_for('auth.request_reset'))
         send_reset_email(user)
-        flash(
-            f"An email has been sent to {user.email} for changing the password", "info")
+        flash(f"An email has been sent to {user.email} for changing the password", "info")
         return redirect(url_for("auth.login"))
     return render_template("request_reset.html", tilte="Reset Password", form=form)
 
