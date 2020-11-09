@@ -54,23 +54,24 @@
   {% for quiz in quiz_list %}
 
 
-  <div class="jumbotron" style="background-color: white;  height:150px;">
+  <div class="jumbotron" style="background-color:rgba(128, 128, 128, 0.096); ">
 
     <div class="example hoverable">
 
-      <div class="container" >
-        <div class="row" style=" height:0px; padding:0px; font-size:large; margin-top:-30px; border-radius:black solid;">
+      <div class="container">
+        <div class="row"
+          style=" height:0px; padding:0px; font-size:large; margin-top:-30px; border-radius:black solid;">
           <div class="col" id="po" style="background-color:mistyrose;border-radius:black solid;  ">
-           <!-- blue  <div class="col" id="po" style="background-color:aqua;border-radius:black solid;  ">-->
-           <!-- orange  <div class="col" id="po" style="background-color:coral;border-radius:black solid;  ">-->
-           <!-- shadeinpink <div class="col" id="po" style="background-color:lightpink;border-radius:black solid;  ">-->
-           <!-- shadeinorange  <div class="col" id="po" style="background-color:lightcoral;border-radius:black solid;  ">-->
+            <!-- blue  <div class="col" id="po" style="background-color:aqua;border-radius:black solid;  ">-->
+            <!-- orange  <div class="col" id="po" style="background-color:coral;border-radius:black solid;  ">-->
+            <!-- shadeinpink <div class="col" id="po" style="background-color:lightpink;border-radius:black solid;  ">-->
+            <!-- shadeinorange  <div class="col" id="po" style="background-color:lightcoral;border-radius:black solid;  ">-->
 
 
 
             <h4 class="pt-3 pl-2"><strong>Quiz ID : {{quiz.id}} <span class="ml-5 pl-5"> {{quiz.title}}</span></strong>
             </h4>
-            
+
           </div>
           <div class="col-md-auto" style="background-color:mistyrose; padding:20px;">
             <!-- shades in same occurrance match the above one here -->
@@ -79,11 +80,11 @@
             <!--<div class="col-md-auto" style="background-color:lightpink; padding:20px;">-->
             <!--<div class="col-md-auto" style="background-color:lightcoral; padding:20px;">-->
 
-              
-          </div>
-          
 
-          
+          </div>
+
+
+
           <div class="col col-lg-2" style="background-color: mistyrose; padding:20px; ">
             <!-- Match here also -->
             <!--<div class="col col-lg-2" style="background-color: aqua; padding:20px; ">-->
@@ -101,13 +102,10 @@
     </div>
     <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
   </div><!-- <==== end here-->
+  </div>
   {% endfor %}
 
 
-
-
-
-</div>
 
 
 
