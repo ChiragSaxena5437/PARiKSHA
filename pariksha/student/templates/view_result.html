@@ -2,7 +2,19 @@
 
 {% block content %}
 <!-- do whatever you want with this div  -->
-<div id="chart" style="margin-top: 200px; width: 800px;">
-    <embed type="image/svg+xml" src= {{ graph|safe }} />
- </div>
+<div class="jumbotron" style="background-color: white;">
+    <div class="col">
+        <div class="container" style="background-color: pink; padding:30px; border-radius:20px; margin-top:50px;">
+            <h2>You can check your <strong>RESULTS</strong> here:</h2>
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+            <h3>Navigate on the bars for particular quiz results</h3>
+        </div>
+        <div class="container" style="background-color: pink; padding:10px; border-radius:20px; margin-top:50px; ">
+            <div id="chart" style="padding:50px; font-family: 'Times New Roman', Times, serif; ">
+                <embed type="image/svg+xml" src={{ graph|safe }} />
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
