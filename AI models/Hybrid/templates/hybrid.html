@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+<script src="webcam.js"></script>
+</head>
+<body>
+    <div>
+		<div>
+			<video autoplay playsinline muted id="wc" width="324" height="324"></video>
+		</div>
+	</div>
+    <button type="button" id="startPredicting" onclick="startPredicting()" >Mobile Predicting</button>
+    <button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop mobile Predicting</button>
+    <br>
+    <button type="button" id="startPredicting" onclick="startPredicting2()" >Mutiple person Predicting</button>
+    <button type="button" id="stopPredicting" onclick="stopPredicting2()" >Stop multiple person Predicting</button>
+    <div id="prediction1"></div>
+<!--    <button type="button"> U HE</button>-->
+    <div id="prediction2"></div>
+</body>
+<script src="Mobile/mobile.js"></script>
+<script src="Person/person.js"></script>
+</html>
