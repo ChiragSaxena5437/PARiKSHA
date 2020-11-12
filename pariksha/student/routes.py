@@ -132,9 +132,10 @@ def view_result():
     
     for quiz in quiz_submitted_query:
         quiz_title = Quiz.query.filter_by(id = quiz[1]).first().title
-        quiz_submitted.append(dict(quiz_title = quiz_title,marks = quiz[3]))
+        quiz_submitted.append(dict(title = quiz_title,marks = quiz[3]))
 
-    return str(quiz_submitted)
+    quiz_exists = bool(len(quiz_submitted))
+    return render_template('view_result.html',quiz_list = quiz_submitted, title = "View Result", quiz_exists = quiz_exists)
 
 
 
