@@ -3,69 +3,280 @@
 
 {% block content%}
 {% with messages = get_flashed_messages(with_categories = true ) %}
-      {% if messages %}
-      {% for category,message in messages %}
-      <div class="alert alert-{{category}} mt-5">
-        <h4 style="text-align:center;">{{message}}</h4>
-      </div>
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{category}} mt-5">
+    <h4 style="text-align:center;">{{message}}</h4>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<style>
+    #footer {
+        color: #444444;
+        font-size: 14px;
+        background: #f6f4f4;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      #footer .footer-top {
+        padding: 60px 0 30px 0;
+        background: #fff;
+      }
+      
+      #footer .footer-top .footer-contact {
+        margin-bottom: 30px;
+      }
+      
+      #footer .footer-top .footer-contact h4 {
+        font-size: 22px;
+        margin: 0 0 30px 0;
+        padding: 2px 0 2px 0;
+        line-height: 1;
+        font-weight: 700;
+      }
+      
+      #footer .footer-top .footer-contact p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-family: "Nunito", sans-serif;
+        color: #777777;
+      }
+      
+      #footer .footer-top h4 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #444444;
+        position: relative;
+        padding-bottom: 12px;
+      }
+      
+      #footer .footer-top .footer-links {
+        margin-bottom: 30px;
+      }
+      
+      #footer .footer-top .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #footer .footer-top .footer-links ul i {
+        padding-right: 2px;
+        color: #ea6981;
+        font-size: 18px;
+        line-height: 1;
+      }
+      
+      #footer .footer-top .footer-links ul li {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      #footer .footer-top .footer-links ul li:first-child {
+        padding-top: 0;
+      }
+      
+      #footer .footer-top .footer-links ul a {
+        color: #777777;
+        transition: 0.3s;
+        display: inline-block;
+        line-height: 1;
+      }
+      
+      #footer .footer-top .footer-links ul a:hover {
+        text-decoration: none;
+        color: #e43c5c;
+      }
+      
+      #footer .footer-newsletter {
+        font-size: 15px;
+      }
+      
+      #footer .footer-newsletter h4 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #444444;
+        position: relative;
+        padding-bottom: 12px;
+      }
+      
+      #footer .footer-newsletter form {
+        margin-top: 30px;
+        background: #fff;
+        padding: 6px 10px;
+        position: relative;
+        border-radius: 50px;
+        text-align: left;
+        border: 1px solid #f7c2cc;
+      }
+      
+      #footer .footer-newsletter form input[type="email"] {
+        border: 0;
+        padding: 4px 8px;
+        width: calc(100% - 100px);
+      }
+      
+      #footer .footer-newsletter form input[type="submit"] {
+        position: absolute;
+        top: 0;
+        right: -2px;
+        bottom: 0;
+        border: 0;
+        background: none;
+        font-size: 15px;
+        padding: 0 22px;
+        background: #e43c5c;
+        color: #fff;
+        transition: 0.3s;
+        border-radius: 50px;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      #footer .footer-newsletter form input[type="submit"]:hover {
+        background: #d01d3f;
+      }
+      
+      #footer .social-links a {
+        font-size: 18px;
+        display: inline-block;
+        background: #e43c5c;
+        color: #fff;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 4px;
+        border-radius: 50%;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        transition: 0.3s;
+      }
+      
+      #footer .social-links a:hover {
+        background: #d01d3f;
+        color: #fff;
+        text-decoration: none;
+      }
+    
+</style>
 <div>
 
-<div class="container" >
-   
+    <div class="container">
+
         <div class="col-md-6 offset-md-3" style="margin-top:150px;margin-bottom:150px;">
-  <div class="content-section">
-    <form method = "POST", action="">
-        {{ form.hidden_tag() }}
-        <fieldset class ="form-group">
-            <legend class="border-bottom mb-4">Log In</legend>
-            
-            <div class="form-group">
-                {{ form.email.label(class="form-control-label") }}
+            <div class="content-section">
+                <form method="POST" , action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Log In</legend>
 
-                {% if form.email.errors %}
-                    {{ form.email(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.email.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.email(class="form-control form-control-lg") }}                        
-                {% endif %}
-            </div>
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label") }}
 
-            <div class="form-group">
-                {{ form.password.label(class="form-control-label") }}
-                {% if form.password.errors %}
-                    {{ form.password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
+                            {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.password.label(class="form-control-label") }}
+                            {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.password(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <div>
+                        {{ form.submit(class="btn btn-outline-primary")}}
                     </div>
-                {% else %}
-                    {{ form.password(class="form-control form-control-lg") }}                        
-                {% endif %}
+                    <div class="mt-2">
+                        <small class="text-muted ml-2 ">
+                            <a href="{{ url_for('auth.request_reset')}}">Forgot Password?</a>
+                        </small>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Don't have an account yet? <a class="ml-2" href="{{ url_for('auth.register')}}">Sign Up</a>
+                    </small>
+                </div>
             </div>
-        </fieldset>
-        <div>
-            {{ form.submit(class="btn btn-outline-primary")}}
         </div>
-        <div class = "mt-2">
-            <small class = "text-muted ml-2 ">
-                <a href="{{ url_for('auth.request_reset')}}">Forgot Password?</a>
-            </small>
-        </div>
-    </form>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Don't have an account yet? <a class = "ml-2" href="{{ url_for('auth.register')}}">Sign Up</a>
-        </small>
     </div>
-</div>   
-</div> 
+</div>
+
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Pariksha</h3>
+            <p>
+              Bennett University <br>
+              Greater Noide, 201010<br>
+              India<br><br>
+              
+              <strong>Email:</strong> PARiKSHA@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <!--
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              -->
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Online examination</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">AI proctoring</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Analystics on class and individual performance</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Quiz templates and Plagiarism detector services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ungraded question banks and AI generated exercises</a></li>
+            </ul>
+          </div>
+          
+           <div class="col-lg-4 col-md-6">
+            <h2>PARiKSHA</h2>
+            <h4><p>
+                Pariksha is created with a motive of providing a unified platform to students and teachers so that the process of learning and its quality does not reduces in these tough times.
+              </p>
+            </h4>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+   </footer>
+</div>
+
+</div>
 </div>
 {% endblock content %}

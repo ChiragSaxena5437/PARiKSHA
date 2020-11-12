@@ -1356,7 +1356,7 @@
             <p>
               It is a unified online platform in the form of a website for conducting assessments and taking assignments, storing the responses for grading and automatically producing performance analytics, and extending upon these providing institutions, teachers and students a place to maintain and access results
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
+            <!--<a href="#" class="btn-learn-more">Learn More</a>-->
           </div>
         </div>
 
@@ -1478,9 +1478,9 @@
       <div class="container">
 
         <div class="text-center">
-          <h3>Already joined Pariksha? <span>Login now</span></h3>
+          <h3>Not  joined Pariksha? <span>Join now</span></h3>
           <p> Students will be able to use our platform from laptops, smartphones, and tablets to give the tests or submit assignments and view results among other things</p>
-          <a class="cta-btn" href="#">Login Now!</a>
+          <a class="cta-btn" href="{{url_for('auth.register')}}">Register Now!</a>
         </div>
 
       </div>
@@ -1521,7 +1521,7 @@
             <a data-toggle="collapse" href="#faq3" class="collapsed">Do I need to install something before using <strong>PARiKSHA</strong> ? <i class="icofont-simple-up"></i></a>
             <div id="faq3" class="collapse" data-parent=".faq-list">
               <p>
-              NOT DECIDED.  
+              Nope, you do not have to worry about all that. 
               </p>
             </div>
           </li>
@@ -1530,25 +1530,25 @@
             <a data-toggle="collapse" href="#faq4" class="collapsed">Is PARiKSHA free? <i class="icofont-simple-up"></i></a>
             <div id="faq4" class="collapse" data-parent=".faq-list">
               <p>
-                Yes,PARiKSHA is free to use.
+                Yes,PARiKSHA is free to use. With all its features.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">Is <strong>PARiKSHA</strong> crashfree ? <i class="icofont-simple-up"></i></a>
             <div id="faq5" class="collapse" data-parent=".faq-list">
               <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                The hybid implementation used in PARiKSHA makes the system stable and decreases the chances of crash .
               </p>
             </div>
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">What all question types does the quiz feature in <strong>PARiKSHA</strong> support ? <i class="icofont-simple-up"></i></a>
             <div id="faq6" class="collapse" data-parent=".faq-list">
               <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+              For the moment PARiKSHA only supports MCQ type of questions but the support for other types would be added very soon.  
               </p>
             </div>
           </li>
@@ -1584,47 +1584,14 @@
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>pariksha.contact@gmail.com</p>
               </div>
 
-              <div class="phone">
-                <i class="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
+              
 
             </div>
 
           </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
 
           </div>
 
@@ -1650,8 +1617,8 @@
               Bennett University <br>
               Greater Noide, 201010<br>
               India<br><br>
-              <strong>Phone:</strong> 6464763546715<br>
-              <strong>Email:</strong> info@example.com<br>
+              
+              <strong>Email:</strong> PARiKSHA@gmail.com<br>
             </p>
           </div>
 
@@ -1660,9 +1627,11 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <!--
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              -->
             </ul>
           </div>
 
@@ -1690,17 +1659,7 @@
       </div>
     </div>
 
-    <div class="container d-md-flex py-4">
-
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
