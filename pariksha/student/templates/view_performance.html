@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- do whatever you want with this div  -->
+<div class="jumbotron" style="background-color: white;">
+    <div class="col">
+        <div class="container" style="background-color: pink; padding:30px; border-radius:20px; margin-top:50px;">
+            <h2>You can check your <strong>RESULTS</strong> here:</h2>
+            <hr style="width:100%;text-align:left;margin-left:0">
+
+            <h3>Navigate on the bars for particular quiz results</h3>
+        </div>
+        <div class="container" style="background-color: pink; padding:10px; border-radius:20px; margin-top:50px; ">
+            <div id="chart" style="padding:50px; font-family: 'Times New Roman', Times, serif; ">
+                <embed type="image/svg+xml" src={{ graph|safe }} />
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer blue text-center " style="padding: 15px; background-color:rgba(128, 128, 128, 0.199);">
+
+    <!--Footer Links-->
+    <div class="container-fluid" style="padding: 15px;">
+        <div class="row">
+  
+            <!--First column-->
+            <div class="col-md-6">
+                <h5 class="title mb-3">PARiKSHA</h5>
+                <p>
+                PARiKSHA is created with a motive of providing a unified platform to students and teachers so that the process of learning and its quality does not reduces in these tough times.
+                    
+                </p>
+            </div>
+            <!--/.First column-->
+  
+            <!--Second column-->
+            <div class="col">
+                <h5 class="title">Contact Us</h5>
+                
+                    <li><a href="#">Mail</a></li>
+                    <p>pariksha.contact@gmail.com</p>
+                    <li><a href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a></li>
+                    
+                    
+                
+            </div>
+            <!--/.Second column-->
+        </div>
+    </div>
+   
+  </footer>
+  
+{% endblock content %}

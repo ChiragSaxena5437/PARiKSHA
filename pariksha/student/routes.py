@@ -101,9 +101,9 @@ def list_quiz():
     return render_template('quiz_list.html',quiz_list = quiz_list,quiz_exists = quiz_exists, title = "Quizzes")
 
 
-@student.route("/view_result")
+@student.route("/view_performance")
 @login_required
-def view_result():
+def view_performance():
     if current_user.student is None:
         flash('Access Denied','danger')
         return redirect(url_for('teacher.home'))
@@ -118,8 +118,26 @@ def view_result():
         quiz_submitted.append(dict(quiz_title = quiz_title,marks = quiz[3],all_marks = all_marks ))
     graph = bar_graph(quiz_submitted)
 
-    return render_template('view_result.html',graph = graph, title = 'Your Performance')
+    return render_template('view_performance.html',graph = graph, title = 'Your Performance')
+   
+@student.route('/view_result')
+@login_required
+def view_result():
+    if current_user.student is None:
+        flash('Access Denied','danger')
+        return redirect(url_for('teacher.home'))
+    student = current_user.student
+    quiz_submitted_query = tuple(db.session.execute(f'SELECT * FROM submits_quiz WHERE student_id = {student.id};'))
+    quiz_submitted = list()
     
+    for quiz in quiz_submitted_query:
+        quiz_title = Quiz.query.filter_by(id = quiz[1]).first().title
+        quiz_submitted.append(dict(title = quiz_title,marks = quiz[3]))
+
+    quiz_exists = bool(len(quiz_submitted))
+    return render_template('view_result.html',quiz_list = quiz_submitted, title = "View Result", quiz_exists = quiz_exists)
+
+
 
     
 @student.route('/add_teacher', methods = ['GET','POST'])
