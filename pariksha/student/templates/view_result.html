@@ -54,94 +54,80 @@
   {% for quiz in quiz_list %}
 
 
-  <div class="jumbotron" style="background-color:rgba(128, 128, 128, 0.096); ">
+  <div class="jumbotron" style="background-color:rgba(128, 128, 128, 0);">
 
     <div class="example hoverable">
 
       <div class="container">
-        <div class="row"
-          style=" height:0px; padding:0px; font-size:large; margin-top:-30px; border-radius:black solid;">
-          <div class="col" id="po" style="background-color:mistyrose;border-radius:black solid;  ">
-            <!-- blue  <div class="col" id="po" style="background-color:aqua;border-radius:black solid;  ">-->
-            <!-- orange  <div class="col" id="po" style="background-color:coral;border-radius:black solid;  ">-->
-            <!-- shadeinpink <div class="col" id="po" style="background-color:lightpink;border-radius:black solid;  ">-->
-            <!-- shadeinorange  <div class="col" id="po" style="background-color:lightcoral;border-radius:black solid;  ">-->
+        <div class="row">
+          <div class="col" id="po" style="background-color:mistyrose;  ">
 
 
 
-            <h4 class="pt-3 pl-2"><strong>Quiz Title : {{quiz.title}} <span class="ml-5 pl-5"> Marks : {{quiz.marks}}</span></strong>
+            <h4 class="pt-3 pl-2"><strong>Quiz Title : {{quiz.title}} <span class="ml-5 pl-5"> Marks :
+                  {{quiz.marks}}</span></strong>
             </h4>
 
           </div>
-          <div class="col-md-auto" style="background-color:mistyrose; padding:20px;">
-            <!-- shades in same occurrance match the above one here -->
-            <!--<div class="col-md-auto" style="background-color:aqua; padding:20px;">-->
-            <!--<div class="col-md-auto" style="background-color:coral; padding:20px;">-->
-            <!--<div class="col-md-auto" style="background-color:lightpink; padding:20px;">-->
-            <!--<div class="col-md-auto" style="background-color:lightcoral; padding:20px;">-->
 
-
-          </div>
 
 
 
           <div class="col col-lg-2" style="background-color: mistyrose; padding:20px; ">
-            <!-- Match here also -->
-            <!--<div class="col col-lg-2" style="background-color: aqua; padding:20px; ">-->
-            <!--<div class="col col-lg-2" style="background-color: coral; padding:20px; ">-->
-            <!--<div class="col col-lg-2" style="background-color: lightpink; padding:20px; ">-->
-            <!--<div class="col col-lg-2" style="background-color: lightcoral; padding:20px; ">-->
+
 
             <div class="example hoverable zoom">
               <a type="button" class="btn btn-success" href="{{url_for('student.view_performance')}}"
                 style="width: 150px; margin-top:-4px; margin-left:px; background-color:#e43c5c;">View Performance</a>
 
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
-</div><!-- <==== end here-->
-{% endfor %}
+      <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
+    </div><!-- <==== end here-->
+    {% endfor %}
+  </div>
 </div>
 
-  <footer class="page-footer blue text-center " style="padding: 15px; background-color:rgba(128, 128, 128, 0.199);">
+<div
+<footer class="page-footer blue text-center " style="padding: 15px; background-color:rgba(128, 128, 128, 0.199);">
 
-    <!--Footer Links-->
-    <div class="container-fluid" style="padding: 15px;">
-        <div class="row">
-  
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="title mb-3">PARiKSHA</h5>
-                <p>
-                PARiKSHA is created with a motive of providing a unified platform to students and teachers so that the process of learning and its quality does not reduces in these tough times.
-                    
-                </p>
-            </div>
-            <!--/.First column-->
-  
-            <!--Second column-->
-            <div class="col">
-                <h5 class="title">Contact Us</h5>
-                
-                    <li><a href="#">Mail</a></li>
-                    <p>pariksha.contact@gmail.com</p>
-                    <li><a href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a></li>
-                    
-                    
-                
-            </div>
-            <!--/.Second column-->
-        </div>
+  <!--Footer Links-->
+  <div class="container-fluid" style="padding: 15px;">
+    <div class="row">
+
+      <!--First column-->
+      <div class="col-md-6">
+        <h5 class="title mb-3">PARiKSHA</h5>
+        <p>
+          PARiKSHA is created with a motive of providing a unified platform to students and teachers so that the process
+          of learning and its quality does not reduces in these tough times.
+
+        </p>
+      </div>
+      <!--/.First column-->
+
+      <!--Second column-->
+      <div class="col">
+        <h5 class="title">Contact Us</h5>
+
+        <li><a href="#">Mail</a></li>
+        <p>pariksha.contact@gmail.com</p>
+        <li><a
+            href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a>
+        </li>
+
+
+
+      </div>
+      <!--/.Second column-->
     </div>
-   
-  </footer>
-  
+  </div>
 
+</footer>
 
-
-
-
+</div>
+</div>
 
 {% endblock content %}
