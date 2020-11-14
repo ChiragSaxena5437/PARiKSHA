@@ -22,7 +22,7 @@ def create_new_quiz():
     if current_user.teacher is None:
         flash("Permission denied to access the page",'danger')
         return redirect(url_for('student.home'))
-    return render_template('teacher_input.html',title = 'Create Quiz')
+    return render_template('create_quiz.html',title = 'Create Quiz')
 
 
 @teacher.route("/create_new_quiz", methods = ['POST'])
@@ -30,7 +30,10 @@ def create_new_quiz():
 def create_new_quiz_post():
     current_teacher = current_user.teacher
     response = request.form
-    no_of_questions = len(response)/6
+    return response
+    return str(len(response))
+    no_of_questions = (len(response)-3)/6
+    return str(no_of_questions)
     total_marks = 0
     start_time = response['start_time']
     end_time = response['end_time']
@@ -53,14 +56,35 @@ def create_new_quiz_post():
     flash('The Quiz has been created', 'success')
     return redirect(url_for('teacher.home'))
 
-@teacher.route('/activate_quizzes')
+
+@teacher.route('/activate_quiz_list')
 @login_required
-def activate_quizzes():
+def activate_quiz_list():
     if current_user.teacher is None:
         flash('Access Denide','danger')
         return redirect(url_for('student.home'))
-    return "HOLA"
+    teacher = current_user.teacher
+    quiz_list = list(teacher.quiz_created) 
+    quiz_exists = bool(len(quiz_list))
+    return render_template('quiz_list_activate.html',title = 'Activate Quiz', quiz_list = quiz_list, quiz_exists = quiz_exists)
 
+
+@teacher.route('/activate_quiz/<int:quiz_id>')
+@login_required
+def activate_quiz(quiz_id):
+    if current_user.teacher is None:
+        flash('Access Denide','danger')
+        return redirect(url_for('student.home'))
+    teacher = current_user.teacher
+    quiz = Quiz.query.filter_by(id = quiz_id).first_or_404()
+    if quiz.teacher_id == teacher.id:
+        quiz.active ^= 1
+        db.session.commit()
+        flash(f'{quiz.title} has been activated!')
+        return redirect(url_for('teacher.activate_quiz_list'))
+    else:
+        flash('Access Denied','danger')
+        return redirect(url_for('teacher.home'))
 
 @teacher.route('/view_performance')
 @login_required
@@ -84,6 +108,7 @@ def view_performance_quiz(quiz_id):
     marks = list(db.session.execute(f'SELECT student_id,marks FROM submits_quiz WHERE quiz_id = {quiz_id}'))
 
     
+
 
 
 

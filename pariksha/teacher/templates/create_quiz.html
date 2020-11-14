@@ -1,0 +1,393 @@
+{% extends "layout.html" %}
+{% block content%}
+
+<head>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+   
+
+</head>
+<style>
+    .zoom {
+
+        transition: transform .2s;
+
+    }
+
+    .zoom:hover {
+        transform: scale(1.2);
+
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .po:hover {
+        transition: transform .2s;
+    }
+
+    .po:hover {
+        background-color: cyan;
+    }
+
+
+
+
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    #img-upload {
+        width: 100%;
+    }
+</style>
+<div class="jumbotron" style="margin-top: 50px; background-color:white; height: 100%;
+
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+padding:70px;">
+
+
+    <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
+
+        <h2>
+            Add all the questions here that you want to see in your <strong>Quiz</strong>
+        </h2>
+        <hr style="width:100%;text-align:left;margin-left:0">
+        <h5>Some instructions:</h5>
+        <ul>Enter the correct answer in the first text area option</ul>
+        <ul>The options would be shuffled for all the students</ul>
+        <hr style="width:100%;text-align:left;margin-left:0">
+
+        <!--<div class="input-group mb-3">
+            <div class="input-group-prepend">
+                
+                <span class="input-group-text" id="Quiztitle-addon1">Question No.</span>
+            </div>
+
+            <textarea id="Quiz_title" name="title" rows="1" cols="50" style="border-radius: 5px; border:double;"
+                aria-label="Question" placeholder="Enter the quiz title"></textarea>
+
+        </div>-->
+        <form method="POST">
+        
+        <div class="input-group mb-3">
+            <h4>Quiz Title</h4>
+            <input type="text" class="form-control" name="title" id="Quiz_title" placeholder="Enter Quiz Title"
+                aria-describedby="basic-addon3">
+        </div>
+
+        <!--
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              
+                <span class="input-group-text" id="Start_date-addon1">Start Date</span>
+            </div>
+            <input type="date">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            
+                <span class="input-group-text" id="End_date-addon1">Start Date</span>
+            </div>
+            <input type="datetime-local" value="2000-01-01T00:00:00" />
+        </div>-->
+        
+        <div class="input-group">
+            <div class="container">
+                <div class="row" style="">
+                    <div class="input-group-prepend" style="margin-left: 5px;">
+                        <!-- ############################## start date tag V-->
+                       <h5 >Start Date  :</h5>
+                    </div>
+                    <input type="date" name='start_time'>
+                    <h5 style="margin-left: 15px;">End Date  :</h5>
+                    <input type="date" name='end_time'>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+   -->
+
+        <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
+        <div>
+
+            <!-- <==========Start Cloning from here-->
+            <div class="container"
+                style="background-color:whitesmoke; color:black; padding:20px; border-radius:30px; margin-top:50px; padding:15px;"
+                id="form_instance1">
+                <div  style="padding: 10px;">
+
+
+
+                    <div class="card" style="background-color:rebeccapurple; border-radius:10px;">
+                        <div class="card-header" id="headingOne" style="color:#e43c5c;">
+                            <h3 class="mb-0">
+
+                                Question No X
+
+                            </h3>
+                        </div>
+
+
+                        <!--<textarea id="QuesIn" name="Question1" rows="3" cols="109"
+                            style="border-radius: 5px; border:double;" aria-label="Question"
+                            placeholder="Enter Your Your Question Here" class='mt-2'></textarea>-->
+
+
+                        <input type="text" class="form-control" name="Question1" id="QuesIn"
+                            placeholder="Enter Question" aria-describedby="basic-addon3">
+
+                    </div>
+
+    <hr >
+
+                    <div class="container">
+                        <div class="col-md-6">
+                            <!-- <div class="form-group">
+                                <label>Choose an image to use in your <strong>Quiz</strong></label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file" style="background-color: #dc3545;">
+                                            Browse… <input name="photo-url1" type="file" name = "photo_url" id="imgInp">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                                <img id='' />
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="col" style="border-style:solid; padding:10px;">
+
+
+                        <div class="form-group row">
+                            <label for="Option A" class="col-sm-2 col-form-label" style=" margin-top:10px;">For Option
+                                A</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px; margin-top:10px;">
+                                    <div class="input-group">
+                                        <input type="text" name="Option1A" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionA" placeholder="Enter Option value this must be correct">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Option B" class="col-sm-2 col-form-label" >For Option
+                                B</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
+
+                                        <input type="text" name="Option1B" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionB" placeholder="Enter Option value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Option C" class="col-sm-2 col-form-label">For Option
+                                C</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
+
+                                        <input type="text" name="Option1C" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionC" placeholder="Enter Option value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Option D" class="col-sm-2 col-form-label" >For Option
+                                D</label>
+                            <div class="col-sm-9">
+                                <div style="padding: 0px; margin-left:-50px;">
+                                    <div class="input-group">
+
+                                        <input type="text" name="Option1D" class="form-control"
+                                            aria-label="Text input with radio button" id="OptionD" placeholder="Enter Option value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group-prepend" style="margin-left: 0px;">
+                            <!--############################### V enter marks tag-->
+                            <span class="input-group-text" id="Enter_Marks-addon1"
+                                style="border-top-left-radius: 10px; border-bottom-left-radius:10px;">Enter marks
+                                for question</span>
+                            <input type="number" min=1
+                                style="width: 50px; border-top-right-radius: 10px; border-bottom-right-radius:10px;"
+                                value="1" name="Marks1" id="Marks" />
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
+        
+        
+        
+        <div class="row justify-content-end">
+            
+            <a class="btn btn-info btn-lg" id="clone_btn">
+                <span class="glyphicon glyphicon-plus-sign"></span> Add another question
+            </a>
+            
+            
+            
+        </div>
+        <!-- <==== Clone till here-->
+        <div class="row justify-content-center">
+            <div class="example hoverable">
+                <input type="submit" value="Submit" class="btn btn-danger"
+                style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
+            </div>
+        </form><!-- <======= Form tag end ========>-->
+        </div>
+
+
+
+
+</div>
+
+</div>
+
+
+<<script>
+
+    $(document).ready(function () {
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this),
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function (event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+</script>
+
+<script>
+    $('#clone_btn').click(function () {
+        var $div = $('div[id^="form_instance"]:last');
+        var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+        var $clone = $div.clone().prop('id', 'form_instance' + num);
+        $div.after($clone);
+        $clone.find('#QuesIn').attr('name', 'Question' + num);
+        $clone.find('#Marks').attr('name', 'Marks' + num);
+        $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
+        $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
+        $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
+        $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
+        $clone.find('#imgInp').attr('name', 'photo-url' + num);
+        $clone.find("input[type='number']").val('');
+        $clone.find("input[type='text']").val('');
+        $clone.find("textarea").val('');
+        $clone.find("#imgInp").val('');
+    });
+</script>
+
+
+<footer class="page-footer blue text-center " style="margin-top:80px;background-color:rgba(128, 128, 128, 0.199);">
+
+    <!--Footer Links-->
+    <div class="container-fluid" style="padding: 15px;">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-6">
+                <h5 class="title mb-3">PARiKSHA</h5>
+                <p>
+                    PARiKSHA is created with a motive of providing a unified platform to students and teachers so that
+                    the process of learning and its quality does not reduces in these tough times.
+
+                </p>
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+            <div class="col">
+                <h5 class="title">Contact Us</h5>
+
+                <li><a href="#">Mail</a></li>
+                <p>pariksha.contact@gmail.com</p>
+                <li><a
+                        href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a>
+                </li>
+
+
+
+            </div>
+            <!--/.Second column-->
+        </div>
+    </div>
+
+</footer>
+
+{% endblock content %}
