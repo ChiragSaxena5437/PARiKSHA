@@ -88,8 +88,6 @@ From the repo folder run the following command
 python run.py
 ```
 
-Till the time backend work is done and all the routes are set navigate to the various pages using the routes name. For e.g. /login, /register, /teachers, etc.
-
 
 
 ## Roadmap
