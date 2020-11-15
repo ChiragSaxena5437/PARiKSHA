@@ -16,6 +16,15 @@
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   }
 </style>
+{% with messages = get_flashed_messages(with_categories = true ) %}
+{% if messages %}
+{% for category,message in messages %}
+<div style="margin-top: 60px;" class="alert alert-{{category}}">
+  <h3>{{message}}</h3>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 <div class="jumbotron" style="margin-top: 50px;">
 
   <div class="jumbotron" style=" background-color:pink; ">
@@ -95,7 +104,7 @@
           <p class="card-text">Check how your class performed.</p>
           <div class="zoom">
 
-            <a href="#" style="width: 15.25rem; margin-top:6px;" class="btn btn-danger">Check Result</a>
+            <a href="{{url_for('teacher.view_performance_list')}}" style="width: 15.25rem; margin-top:6px;" class="btn btn-danger">Check Result</a>
           </div>
         </div>
       </div>
