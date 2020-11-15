@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h1><span>Student 1:</span></h1>
+        <div id='time'></div>
+    <span>Mobile Detected: </span>
+    <h2 style="display:inline" id="mobile"></h2>
+        <br>
+    <span>Number of People Detected: </span>
+        <h2 style="display:inline" id="person"></h2>
+    </div>
+    <textarea id='text'></textarea>
+    <div id='his'></div>
+
+<script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port);;
+    var name = prompt("Please enter your name", "Admin");
+    const mobile = document.getElementById('mobile');
+    const people = document.getElementById('person');
+    const hist = document.getElementById("his");
+    socket.on('connect', function() {
+
+    socket.emit('admin', {data: {'name': name}})
+
+    socket.on('studentPrediction', function(data){
+        mobile.innerText = data.data.data[0]
+        person.innerText = data.data.data[1]
+        
+        hist.innerText = data.data.data.slice(0,-1);
+        const result1 = (mobile.innerText).localeCompare("MOBILE detected") == 0;
+        const result2 = (people.innerText).localeCompare("Multiple person") == 0;
+        const finalr = result1 || result2;
+        console.log(finalr);
+        if(finalr){
+            var date = new Date();
+            document.getElementById('time').innerHTML = date.toDateString();
+            var text = (hist.innerText).concat(" (" + date.toUTCString() + ")").concat("\n");
+            document.getElementById("text").append(text);
+        }
+        
+    })
+    });
+</script>
+</body>
+</html>
