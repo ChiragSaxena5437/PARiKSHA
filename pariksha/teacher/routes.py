@@ -1,6 +1,6 @@
 from flask import render_template,Blueprint,flash,redirect,url_for,request
 from flask_login import login_required,current_user,logout_user
-from pariksha.models import Quiz,Quiz_Questions
+from pariksha.models import Quiz,Quiz_Questions,Student
 from pariksha import db
 import datetime
 
@@ -30,10 +30,7 @@ def create_new_quiz():
 def create_new_quiz_post():
     current_teacher = current_user.teacher
     response = request.form
-    return response
-    return str(len(response))
-    no_of_questions = (len(response)-3)/6
-    return str(no_of_questions)
+    no_of_questions = int((len(response)-3)/6)
     total_marks = 0
     start_time = response['start_time']
     end_time = response['end_time']
@@ -80,17 +77,15 @@ def activate_quiz(quiz_id):
     if quiz.teacher_id == teacher.id:
         quiz.active ^= 1
         db.session.commit()
-        flash(f'{quiz.title} has been activated!')
         return redirect(url_for('teacher.activate_quiz_list'))
     else:
-        flash('Access Denied','danger')
         return redirect(url_for('teacher.home'))
 
-@teacher.route('/view_performance')
+@teacher.route('/view_performance_list')
 @login_required
-def view_performance():
+def view_performance_list():
     if current_user.teacher is None:
-        flash('Access Denide','danger')
+        flash('Access Denied','danger')
         return redirect(url_for('student.home'))
     teacher = current_user.teacher
     quiz_list = list(teacher.quiz_created) 
@@ -99,13 +94,26 @@ def view_performance():
 
 @teacher.route('/view_performance/<int:quiz_id>')
 @login_required
-def view_performance_quiz(quiz_id):
+def view_performance(quiz_id):
     if current_user.teacher is None:
         flash('Access Denide','danger')
         return redirect(url_for('student.home'))
     quiz = Quiz.query.filter_by(id = quiz_id).first_or_404()
     teacher = current_user.teacher
     marks = list(db.session.execute(f'SELECT student_id,marks FROM submits_quiz WHERE quiz_id = {quiz_id}'))
+    data = list()
+    for i,entry in enumerate(marks):
+        student_name = Student.query.filter_by(id = entry[0]).first().user.name
+        data_entry = dict()
+        data_entry['sr_no'] = i+1
+        data_entry['student_id'] = entry[0]
+        data_entry['student_name'] = student_name
+        data_entry['marks'] = entry[1]
+        data.append(data_entry)
+    data_exists = bool(len(data))
+    return render_template('view_quiz_performance.html',title = "View Performace", quiz_title = quiz.title, data = data)
+
+
 
     
 

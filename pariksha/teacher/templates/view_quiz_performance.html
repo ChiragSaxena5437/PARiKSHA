@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<div style="margin-top: 100px; width: 75%;">
+    <b>Title : {{quiz_title}}</b>
+    <table class="table">
+        <thead class="thead-dark">
+            
+            <tr>
+                <th scope="col">Sr. No</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Marks</th>
+            </tr>
+        </thead>
+        {% for entry in data %}
+        <tbody>
+            <tr>
+                <th scope="row">{{entry['sr_no']}}</th>
+                <td>{{entry['student_id']}}</td>
+                <td>{{entry['student_name']}}</td>
+                <td>{{entry['marks']}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+  </div>
+    
+{% endblock content %}
