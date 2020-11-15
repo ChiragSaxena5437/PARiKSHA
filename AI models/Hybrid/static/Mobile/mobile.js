@@ -1,6 +1,7 @@
 let mobilenet;
 const webcam = new Webcam(document.getElementById('wc'));
 let isPredicting = false;
+var mobilePrediction = 'Everything alright';
 
 async function loadMobilenet() {
     console.log("Model function STEP 2");
@@ -21,14 +22,16 @@ async function predict() {
     var predictionText = "";
     switch(classId){
 		case 0:
-			predictionText = "Everything alright";
+			predictionText = "Not present";
+			mobilePrediction = predictionText;
 			break;
 		case 1:
 			predictionText = "MOBILE detected";
+			mobilePrediction = predictionText;
 			break;
 	}
+
 	document.getElementById("prediction1").innerText = predictionText;
-			
     
     predictedClass.dispose();
     await tf.nextFrame();
