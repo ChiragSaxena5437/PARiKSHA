@@ -7,9 +7,33 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-   
 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myModal").modal('show');
+        });
+    </script>
 </head>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Some Instructions before you go on!!!</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <li>Enter the correct answer in the first text area option</li>
+                <li>The options would be shuffled for all the students</li>
+    
+            </div>
+        </div>
+    </div>
+</div>
 <style>
     .zoom {
 
@@ -72,19 +96,16 @@ background-size: cover;
 padding:70px;">
 
 
-        <form method="POST">
-    <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
+    <form method="POST">
+        <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
 
-        <h2>
-            Add all the questions here that you want to see in your <strong>Quiz</strong>
-        </h2>
-        <hr style="width:100%;text-align:left;margin-left:0">
-        <h5>Some instructions:</h5>
-        <ul>Enter the correct answer in the first text area option</ul>
-        <ul>The options would be shuffled for all the students</ul>
-        <hr style="width:100%;text-align:left;margin-left:0">
+            <h2>
+                Add all the questions here that you want to see in your <strong>Quiz</strong>
+            </h2>
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <hr style="width:100%;text-align:left;margin-left:0">
 
-        <!--<div class="input-group mb-3">
+            <!--<div class="input-group mb-3">
             <div class="input-group-prepend">
                 
                 <span class="input-group-text" id="Quiztitle-addon1">Question No.</span>
@@ -94,14 +115,14 @@ padding:70px;">
                 aria-label="Question" placeholder="Enter the quiz title"></textarea>
 
         </div>-->
-        
-        <div class="input-group mb-3">
-            <h4 style="margin-top:7px;">Quiz Title</h4>
-            <input type="text" class="form-control" name="title" id="Quiz_title" placeholder="Enter Quiz Title"
-                aria-describedby="basic-addon3">
-        </div>
 
-        <!--
+            <div class="input-group mb-3">
+                <h4 style="margin-top:7px;">Quiz Title</h4>
+                <input type="text" class="form-control" name="title" id="Quiz_title" placeholder="Enter Quiz Title"
+                    aria-describedby="basic-addon3" required>
+            </div>
+
+            <!--
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               
@@ -116,26 +137,26 @@ padding:70px;">
             </div>
             <input type="datetime-local" value="2000-01-01T00:00:00" />
         </div>-->
-        
-        <div class="input-group">
-            <div class="container">
-                <div class="row" >
-                    <div class="input-group-prepend" style="margin-left: 5px;">
-                        <!-- ############################## start date tag V-->
-                       <h5 style="margin-top:3px; padding:5px;">Start Date  :</h5>
+
+            <div class="input-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="input-group-prepend" style="margin-left: 5px;">
+                            <!-- ############################## start date tag V-->
+                            <h5 style="margin-top:3px; padding:5px;">Start Date :</h5>
+                        </div>
+                        <input type="date" name='start_time' required>
+                        <h5 style="margin-left: 15px; margin-top:3px; padding:5px;">End Date :</h5>
+                        <input type="date" name='end_time' required>
                     </div>
-                    <input type="date" name='start_time'>
-                    <h5 style="margin-left: 15px; margin-top:3px; padding:5px;">End Date  :</h5>
-                    <input type="date" name='end_time'>
                 </div>
             </div>
+
         </div>
 
-    </div>
 
 
-
-    <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+        <!-- <blockquote class="imgur-embed-pub" lang="en" data-id="P36epN6"  ><a href="//imgur.com/P36epN6"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
    -->
 
         <!-- <<<<=============================This is the form tag i added- ===============================================>>> -->
@@ -145,7 +166,7 @@ padding:70px;">
             <div class="container"
                 style="background-color:whitesmoke; color:black; padding:20px; border-radius:30px; margin-top:50px; padding:15px;"
                 id="form_instance1">
-                <div  style="padding: 10px;">
+                <div style="padding: 10px;">
 
 
 
@@ -165,11 +186,11 @@ padding:70px;">
 
 
                         <input type="text" class="form-control" name="Question1" id="QuesIn"
-                            placeholder="Enter Question" aria-describedby="basic-addon3">
+                            placeholder="Enter Question" aria-describedby="basic-addon3" required>
 
                     </div>
 
-    <hr >
+                    <hr>
 
                     <div class="container">
                         <div class="col-md-6">
@@ -192,27 +213,30 @@ padding:70px;">
 
 
                         <div class="form-group row">
-                            <label for="Option A" class="col-sm-2 col-form-label" style=" margin-top:10px;">For Option
+                            <label for="Option A" class="col-sm-2 col-form-label" style=" margin-top:10px;">For
+                                Option
                                 A</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px; margin-top:10px;">
                                     <div class="input-group">
                                         <input type="text" name="Option1A" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionA" placeholder="Enter Option value this must be correct">
+                                            aria-label="Text input with radio button" id="OptionA"
+                                            placeholder="Enter Option value this must be correct" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Option B" class="col-sm-2 col-form-label" >For Option
+                            <label for="Option B" class="col-sm-2 col-form-label">For Option
                                 B</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1B" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionB" placeholder="Enter Option value">
+                                            aria-label="Text input with radio button" id="OptionB"
+                                            placeholder="Enter Option value" required>
                                     </div>
                                 </div>
                             </div>
@@ -226,21 +250,23 @@ padding:70px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1C" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionC" placeholder="Enter Option value">
+                                            aria-label="Text input with radio button" id="OptionC"
+                                            placeholder="Enter Option value">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Option D" class="col-sm-2 col-form-label" >For Option
+                            <label for="Option D" class="col-sm-2 col-form-label">For Option
                                 D</label>
                             <div class="col-sm-9">
                                 <div style="padding: 0px; margin-left:-50px;">
                                     <div class="input-group">
 
                                         <input type="text" name="Option1D" class="form-control"
-                                            aria-label="Text input with radio button" id="OptionD" placeholder="Enter Option value">
+                                            aria-label="Text input with radio button" id="OptionD"
+                                            placeholder="Enter Option value" required>
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +278,7 @@ padding:70px;">
                                 for question</span>
                             <input type="number" min=1
                                 style="width: 50px; border-top-right-radius: 10px; border-bottom-right-radius:10px;"
-                                value="1" name="Marks1" id="Marks" />
+                                name="Marks1" id="Marks"  required />
 
                         </div>
 
@@ -263,126 +289,127 @@ padding:70px;">
                 </div>
             </div>
         </div>
-     
+
         <hr style="width:100%;text-align:left;margin-left:0; width:10px;">
-        
-        
-        
+
+
+
         <div class="row justify-content-end">
-            
+
             <a class="btn btn-info btn-lg" id="clone_btn">
                 <span class="glyphicon glyphicon-plus-sign"></span> Add another question
             </a>
-            
-            
-            
+
+
+
         </div>
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         <!-- <==== Clone till here-->
         <div class="row justify-content-center">
             <div class="example hoverable">
                 <input type="submit" value="Submit" class="btn btn-danger"
-                style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
+                    style="width: 150px; margin-top:10px; background-color:#e43c5c; ">
             </div>
         </div>
-        </form><!-- <======= Form tag end ========>-->
+    </form><!-- <======= Form tag end ========>-->
 </div>
 
 
 <<script>
 
     $(document).ready(function () {
-        $(document).on('change', '.btn-file :file', function () {
-            var input = $(this),
-                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-            input.trigger('fileselect', [label]);
-        });
-
-        $('.btn-file :file').on('fileselect', function (event, label) {
-
-            var input = $(this).parents('.input-group').find(':text'),
-                log = label;
-
-            if (input.length) {
-                input.val(log);
-            } else {
-                if (log) alert(log);
-            }
-
-        });
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#img-upload').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgInp").change(function () {
-            readURL(this);
-        });
+    $(document).on('change', '.btn-file :file', function () {
+    var input = $(this),
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [label]);
     });
-</script>
 
-<script>
-    $('#clone_btn').click(function () {
-        var $div = $('div[id^="form_instance"]:last');
-        var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
-        var $clone = $div.clone().prop('id', 'form_instance' + num);
-        $div.after($clone);
-        $clone.find('#QuesIn').attr('name', 'Question' + num);
-        $clone.find('#Marks').attr('name', 'Marks' + num);
-        $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
-        $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
-        $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
-        $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
-        $clone.find('#imgInp').attr('name', 'photo-url' + num);
-        $clone.find("input[type='number']").val('');
-        $clone.find("input[type='text']").val('');
-        $clone.find("textarea").val('');
-        $clone.find("#imgInp").val('');
+    $('.btn-file :file').on('fileselect', function (event, label) {
+
+    var input = $(this).parents('.input-group').find(':text'),
+    log = label;
+
+    if (input.length) {
+    input.val(log);
+    } else {
+    if (log) alert(log);
+    }
+
     });
-</script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+    $('#img-upload').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+
+    $("#imgInp").change(function () {
+    readURL(this);
+    });
+    });
+    </script>
+
+    <script>
+        $('#clone_btn').click(function () {
+            var $div = $('div[id^="form_instance"]:last');
+            var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+            var $clone = $div.clone().prop('id', 'form_instance' + num);
+            $div.after($clone);
+            $clone.find('#QuesIn').attr('name', 'Question' + num);
+            $clone.find('#Marks').attr('name', 'Marks' + num);
+            $clone.find('#OptionA').attr('name', 'Option' + num + 'A');
+            $clone.find('#OptionB').attr('name', 'Option' + num + 'B');
+            $clone.find('#OptionC').attr('name', 'Option' + num + 'C');
+            $clone.find('#OptionD').attr('name', 'Option' + num + 'D');
+            $clone.find('#imgInp').attr('name', 'photo-url' + num);
+            $clone.find("input[type='number']").val('');
+            $clone.find("input[type='text']").val('');
+            $clone.find("textarea").val('');
+            $clone.find("#imgInp").val('');
+        });
+    </script>
 
 
-<footer class="page-footer blue text-center " style="margin-top:80px;background-color:rgba(128, 128, 128, 0.199);">
+    <footer class="page-footer blue text-center " style="margin-top:80px;background-color:rgba(128, 128, 128, 0.199);">
 
-    <!--Footer Links-->
-    <div class="container-fluid" style="padding: 15px;">
-        <div class="row">
+        <!--Footer Links-->
+        <div class="container-fluid" style="padding: 15px;">
+            <div class="row">
 
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="title mb-3">PARiKSHA</h5>
-                <p>
-                    PARiKSHA is created with a motive of providing a unified platform to students and teachers so that
-                    the process of learning and its quality does not reduces in these tough times.
+                <!--First column-->
+                <div class="col-md-6">
+                    <h5 class="title mb-3">PARiKSHA</h5>
+                    <p>
+                        PARiKSHA is created with a motive of providing a unified platform to students and teachers
+                        so that
+                        the process of learning and its quality does not reduces in these tough times.
 
-                </p>
+                    </p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col">
+                    <h5 class="title">Contact Us</h5>
+
+                    <li><a href="#">Mail</a></li>
+                    <p>pariksha.contact@gmail.com</p>
+                    <li><a
+                            href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a>
+                    </li>
+
+
+
+                </div>
+                <!--/.Second column-->
             </div>
-            <!--/.First column-->
-
-            <!--Second column-->
-            <div class="col">
-                <h5 class="title">Contact Us</h5>
-
-                <li><a href="#">Mail</a></li>
-                <p>pariksha.contact@gmail.com</p>
-                <li><a
-                        href="https://www.linkedin.com/posts/pulkit-vyas_onlineexamination-onlineeducation-edtech-activity-6716777003296555008-MvzC">LinkedIn</a>
-                </li>
-
-
-
-            </div>
-            <!--/.Second column-->
         </div>
-    </div>
 
-</footer>
+    </footer>
 
-{% endblock content %}
+    {% endblock content %}
