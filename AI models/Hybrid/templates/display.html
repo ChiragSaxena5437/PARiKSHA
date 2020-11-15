@@ -3,12 +3,27 @@
 <head>
      <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Teacher</title>
+    
+<style>
+.dot{
+  height: 25px;
+  width: 25px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
+    
 </head>
+    
 <body>
     <div>
         <h1><span>Student 1:</span></h1>
         <div id='time'></div>
+        <div>
+            <span id='cir' class="dot"></span>
+        </div>
     <span>Mobile Detected: </span>
     <h2 style="display:inline" id="mobile"></h2>
         <br>
@@ -24,6 +39,7 @@
     const mobile = document.getElementById('mobile');
     const people = document.getElementById('person');
     const hist = document.getElementById("his");
+    var thresh = 0;
     socket.on('connect', function() {
 
     socket.emit('admin', {data: {'name': name}})
@@ -36,14 +52,20 @@
         const result1 = (mobile.innerText).localeCompare("MOBILE detected") == 0;
         const result2 = (people.innerText).localeCompare("Multiple person") == 0;
         const finalr = result1 || result2;
-        console.log(finalr);
+        
         if(finalr){
             var date = new Date();
             document.getElementById('time').innerHTML = date.toDateString();
             var text = (hist.innerText).concat(" (" + date.toUTCString() + ")").concat("\n");
             document.getElementById("text").append(text);
+            
+            //exceding threshold will colour the circle red on the top 
+            thresh = thresh+1;
+            console.log(thresh);
+            if(thresh == 5){   //setting threshold to 5
+                document.getElementById('cir').style.backgroundColor = "red";
+            }
         }
-        
     })
     });
 </script>
