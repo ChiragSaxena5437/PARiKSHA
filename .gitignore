@@ -32,6 +32,9 @@ $RECYCLE.BIN/
 *.pyc
 *.pyo
 
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
 __pycache__/
 __pycache__*
 *.cypython-38
