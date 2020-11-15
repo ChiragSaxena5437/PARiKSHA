@@ -1,6 +1,7 @@
 let personnet;
 const webcam2 = new Webcam(document.getElementById('wc'));
 let isPredicting2 = false;
+var personPrediction = 'Single person';
 
 async function loadPersonnet() {
     const personnet = await tf.loadLayersModel('http://127.0.0.1:5000/Person/model2.json');
@@ -21,9 +22,12 @@ async function predict2() {
     switch(classId){
 		case 1:
 			predictionText2 = "Single person";
+			personPrediction = predictionText2;
 			break;
 		case 0:
-			predictionText2 = "Multiple person detected";
+			predictionText2 = "Multiple person";
+			personPrediction = predictionText2;
+//			window.location.replace("complaint/id=".concat("stud1"))
 			break;
 	}
 	document.getElementById("prediction2").innerText = predictionText2;

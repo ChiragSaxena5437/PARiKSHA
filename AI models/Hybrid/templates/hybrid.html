@@ -1,7 +1,9 @@
 <html>
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
-<script src="webcam.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <script src="webcam.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div>
@@ -9,15 +11,25 @@
 			<video autoplay playsinline muted id="wc" width="324" height="324"></video>
 		</div>
 	</div>
-    <button type="button" id="startPredicting" onclick="startPredicting()" >Mobile Predicting</button>
+    <button type="button" id="startPredicting" class="start" onclick="startPredicting()" >Mobile Predicting</button>
     <button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop mobile Predicting</button>
     <br>
-    <button type="button" id="startPredicting" onclick="startPredicting2()" >Mutiple person Predicting</button>
+    <button type="button" id="startPredicting"class="start" onclick="startPredicting2()" >Mutiple person Predicting</button>
     <button type="button" id="stopPredicting" onclick="stopPredicting2()" >Stop multiple person Predicting</button>
     <div id="prediction1"></div>
 <!--    <button type="button"> U HE</button>-->
     <div id="prediction2"></div>
+    
 </body>
+
 <script src="Mobile/mobile.js"></script>
 <script src="Person/person.js"></script>
+<script src="socket.js" defer></script>
+
+<!--
+<script type="text/javascript" async>
+    var pred = ((document.getElementById("prediction1").innerText).concat(document.getElementById("prediction2").innerText));
+    document.getElementById("pred").innerText = pred;
+</script>
+-->
 </html>
