@@ -95,7 +95,7 @@ background-repeat: no-repeat;
 background-size: cover;
 padding:70px;">
 
-
+    {% set index = 1 %}
     <form method="POST">
         <div class="container" style=" background:pink; color:black; padding:50px; border-radius:30px;">
 
@@ -174,10 +174,12 @@ padding:70px;">
                         <div class="card-header" id="headingOne" style="color:#e43c5c;">
                             <h3 class="mb-0">
 
-                                Question No X
+                                
+                                Question
 
                             </h3>
                         </div>
+                        
 
 
                         <!--<textarea id="QuesIn" name="Question1" rows="3" cols="109"
@@ -301,7 +303,6 @@ padding:70px;">
             </a>
 
 
-
         </div>
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         <!-- <==== Clone till here-->
@@ -325,7 +326,7 @@ padding:70px;">
     });
 
     $('.btn-file :file').on('fileselect', function (event, label) {
-
+    
     var input = $(this).parents('.input-group').find(':text'),
     log = label;
 

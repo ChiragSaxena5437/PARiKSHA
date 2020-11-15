@@ -38,7 +38,7 @@ def quiz(quiz_id):
     if not quiz.active:
         flash("The quiz you are trying to attemp is not active right now","warning")
         return redirect(url_for('student.home'))
-       
+    
     questions = quiz.questions
     orig_questions = dict()
     for question in questions:

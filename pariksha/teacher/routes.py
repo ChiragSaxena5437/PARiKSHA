@@ -1,8 +1,10 @@
-from flask import render_template,Blueprint,flash,redirect,url_for,request
+from flask import render_template,Blueprint,flash,redirect,url_for,request,send_from_directory
 from flask_login import login_required,current_user,logout_user
 from pariksha.models import Quiz,Quiz_Questions,Student
 from pariksha import db
 import datetime
+import csv
+import os
 
 teacher = Blueprint('teacher',__name__,url_prefix="/teacher",template_folder='templates')
 
@@ -61,7 +63,8 @@ def activate_quiz_list():
         flash('Access Denide','danger')
         return redirect(url_for('student.home'))
     teacher = current_user.teacher
-    quiz_list = list(teacher.quiz_created) 
+    quiz_list = list(teacher.quiz_created)
+    quiz_list = [quiz for quiz in quiz_list if quiz.start_time <= datetime.datetime.now() <= quiz.end_time]
     quiz_exists = bool(len(quiz_list))
     return render_template('quiz_list_activate.html',title = 'Activate Quiz', quiz_list = quiz_list, quiz_exists = quiz_exists)
 
@@ -92,7 +95,7 @@ def view_performance_list():
     quiz_exists = bool(len(quiz_list))
     return render_template('quiz_list_teacher.html',title = 'View Performace', quiz_list = quiz_list, quiz_exists = quiz_exists)
 
-@teacher.route('/view_performance/<int:quiz_id>')
+@teacher.route('/view_performance/<int:quiz_id>', methods = ['POST','GET'])
 @login_required
 def view_performance(quiz_id):
     if current_user.teacher is None:
@@ -111,7 +114,22 @@ def view_performance(quiz_id):
         data_entry['marks'] = entry[1]
         data.append(data_entry)
     data_exists = bool(len(data))
-    return render_template('view_quiz_performance.html',title = "View Performace", quiz_title = quiz.title, data = data)
+    if request.method == 'POST':
+        path = os.getcwd() + f'/pariksha/results/{quiz.title}_results.csv'
+        try:
+            with open(path,'w',newline='',encoding='utf-8') as file:
+                field_names = list(data[0])
+                writer = csv.DictWriter(file, fieldnames = field_names)
+                writer.writeheader()
+                for entry in data:
+                    writer.writerow(entry)
+            return send_from_directory(directory='results', filename=f'{quiz.title}_results.csv', as_attachment = True)
+        except IOError:
+            flash('Downloading Error Occured','warning')
+            return redirect(url_for('teacher.home'))
+    else:
+        return render_template('view_quiz_performance.html',title = "View Performace", quiz_title = quiz.title, data = data)
+
 
 
 
