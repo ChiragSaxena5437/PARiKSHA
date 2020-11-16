@@ -41,8 +41,10 @@ def quiz(quiz_id):
     
     questions = quiz.questions
     orig_questions = dict()
+    index = 1
     for question in questions:
-        orig_questions[str(question.question_desc)] = [str(question.option_1),str(question.option_2),str(question.option_3),str(question.option_4)]
+        orig_questions[ str(question.question_desc)] = [str(question.option_1),str(question.option_2),str(question.option_3),str(question.option_4)]
+        index += 1
 
 
     questions = copy.deepcopy(orig_questions)
