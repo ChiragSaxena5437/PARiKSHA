@@ -24,8 +24,8 @@ def register():
                 db.session.add(teacher)
             db.session.commit()
             send_verification_email(user)
-            flash("Your Account has been created and ready to be logged in !!", 'success')
-            return redirect(url_for("main.welcome"))
+            flash(f"Account has been created and a verification link has been sent to {form.email.data} !!", 'success')
+            return redirect(url_for("auth.login"))
         return render_template("register.html",form = form,title = "Register")
     else:
         if current_user.student is not None:
