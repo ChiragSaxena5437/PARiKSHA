@@ -1,12 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <br />
 <p align="center">
   <a href="https://github.com/ChiragSaxena5437/PARiKSHA">
@@ -52,6 +43,8 @@
 * [Bootstrap](https://getbootstrap.com/)
 * [Flask](https://flask.palletsprojects.com/)
 * [Jinja](https://jinja.palletsprojects.com/)
+* [WebRTC](https://webrtc.org/)
+* [TensorFlow](https://www.tensorflow.org/)
 
 
 
@@ -62,6 +55,8 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 * python
+* node
+* npm
 
 
 ### Installation
@@ -107,16 +102,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=flat-square
-[contributors-url]: https://github.com/ChiragSaxena5437/PARiKSHA/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=flat-square
-[forks-url]: https://github.com/ChiragSaxena5437/PARiKSHA/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=flat-square
-[stars-url]: https://github.com/ChiragSaxena5437/PARiKSHA/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=flat-square
-[issues-url]: https://github.com/ChiragSaxena5437/PARiKSHA/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=flat-square
-[license-url]: https://github.com/ChiragSaxena5437/PARiKSHA/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/pulkit-vyas
 [product-screenshot]: assets/images/About.png
